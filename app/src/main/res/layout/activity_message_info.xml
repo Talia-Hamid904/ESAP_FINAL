@@ -61,10 +61,7 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/amb_3d" />
 
-
         </RelativeLayout>
-
-
 
     </LinearLayout>
 
