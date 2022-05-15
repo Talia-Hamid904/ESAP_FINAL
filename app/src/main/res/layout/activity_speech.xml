@@ -90,25 +90,7 @@
                         android:elevation="4dp" />
 
 
-                    <TextView
-                        android:id="@+id/speech_text"
-                        android:layout_width="278dp"
-                        android:layout_height="269dp"
-                        android:layout_alignStart="@+id/rectangle_2"
-                        android:layout_alignEnd="@+id/rectangle_2"
-                        android:layout_alignBottom="@+id/rectangle_2"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerInParent="true"
-                        android:layout_marginStart="3dp"
-                        android:layout_marginLeft="83dp"
-                        android:layout_marginTop="44dp"
-                        android:layout_marginEnd="2dp"
-                        android:layout_marginBottom="4dp"
-                        android:background="#FFFFFF"
-                        android:gravity="right|top"
-                        android:text=""
-                        android:textColor="#000000"
-                        android:textSize="18sp" />
+
 
                     <View
                         android:id="@+id/rectangle_3"
@@ -133,7 +115,7 @@
                         android:gravity="right|center_vertical"
                         android:text="@string/test_text"
                         android:textColor="#C6BFBFD6"
-                        android:textSize="16dp" />
+                        android:textSize="18dp" />
 
                     <ImageButton
                         android:id="@+id/mic"
@@ -162,6 +144,30 @@
                         android:focusable="true"
                         android:onClick="stopOnClick"
                         tools:ignore="UsingOnClickInXml" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/speech_text"
+                        android:layout_width="272dp"
+                        android:layout_height="264dp"
+                        android:layout_alignEnd="@+id/rectangle_2"
+                        android:layout_alignBottom="@+id/rectangle_2"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="68dp"
+                        android:layout_marginLeft="83dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="@color/white"
+                        android:elevation="4dp"
+                        android:gravity="right|top"
+                        android:hint="بولیے"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text=""
+                        android:textColor="#000000"
+                        android:textColorHint="#C6BFBFD6"
+                        android:textDirection="rtl"
+                        android:textSize="18sp" />
 
                 </RelativeLayout>
 
