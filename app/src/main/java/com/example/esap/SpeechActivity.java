@@ -115,7 +115,7 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
         Intent intent = getIntent();
         // UI initialisation
         returnedText = findViewById(R.id.speech_text);
-        returnedError = findViewById(R.id.speech_text);
+        //returnedError = findViewById(R.id.speech_text);
         progressBar = findViewById(R.id.progressBar1);
         progressBar.setVisibility(View.INVISIBLE);
         locationRequest = LocationRequest.create();
@@ -355,9 +355,10 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
         for (String result : matches)
             text += result + "\n";
         msg = msg + " " + text;
-        Log.i(LOG_TAG, msg);
         returnedText.setText("");
         returnedText.setText(msg);
+        Log.i(LOG_TAG, msg);
+
         speech.startListening(recognizerIntent);
     }
 
@@ -464,7 +465,7 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
                     serviceType = botResponse.getText();
                     Log.i("Response:",botResponse.getText());
                     getCurrentLocation();
-                    getAccount();
+                    //getAccount();
 
                 }
             }
@@ -480,8 +481,9 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
     }
 
 
-    public void getAccount() {
-
+    public void cancel(View view) {
+        Intent myIntent = new Intent(SpeechActivity.this, MainActivity.class);
+        SpeechActivity.this.startActivity(myIntent);
     }
 
 

@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/FYP/ESAP_FINAL/app/src/main/res/drawable/inner_rect.xml" value="0.107" />
+        <entry key="..\:/FYP/ESAP_FINAL/app/src/main/res/drawable/inner_rect_2.xml" value="0.107" />
+        <entry key="..\:/FYP/ESAP_FINAL/app/src/main/res/drawable/rectangle_2.xml" value="0.107" />
         <entry key="..\:/FYP/ESAP_FINAL/app/src/main/res/layout/activity_speech.xml" value="0.13697916666666668" />
       </map>
     </option>
