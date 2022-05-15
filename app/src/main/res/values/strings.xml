@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">ESAP</string>
+    <string name="top_text">ہنگامی صورتحال</string>
+    <string name="accident">حادثہ</string>
+    <string name="heartattack">دل کا دورہ</string>
+    <string name="breathing">دم گھٹنا</string>
+    <string name="poison">فوڈ پوائزن</string>
+    <string name="fire">آگ</string>
+    <string name="mch">زچہ و بچہ</string>
+    <string name="services">خدمات</string>
+    <string name="ambulance">ایمبولینس</string>
+    <string name="firebrigade">فائر بریگیڈ</string>
+    <string name="title_activity_speech">SpeechActivity</string>
+    <string name="test_text">لکھیے</string>
+
+    <string name="cancel">منسوخ</string>
+
+    <string name="submit">درج</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
+</resources>

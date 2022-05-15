@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SpeechActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="20dp"
+                tools:ignore="RtlSymmetry">
+
+                <View
+                    android:id="@+id/icons8_menu"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/menu"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.088"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.037" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/rect" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar1"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="283dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="65dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.166"
+                        tools:layout_editor_absoluteX="0dp" />
+
+                    <View
+                        android:id="@+id/rectangle_2"
+                        android:layout_width="283dp"
+                        android:layout_height="290dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="27dp"
+                        android:background="@drawable/inner_rect"
+                        android:elevation="4dp" />
+
+
+                    <TextView
+                        android:id="@+id/speech_text"
+                        android:layout_width="180dp"
+                        android:layout_height="256dp"
+                        android:layout_alignStart="@+id/rectangle_2"
+                        android:layout_alignEnd="@+id/rectangle_2"
+                        android:layout_alignBottom="@+id/rectangle_2"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="19dp"
+                        android:layout_marginLeft="83dp"
+                        android:layout_marginTop="44dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="19dp"
+                        android:gravity="right|top" />
+
+                    <View
+                        android:id="@+id/rectangle_3"
+                        android:layout_width="286dp"
+                        android:layout_height="58dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="332dp"
+                        android:background="@drawable/inner_rect_2"
+                        android:elevation="4dp" />
+
+                    <TextView
+                        android:id="@+id/text_8"
+                        android:layout_width="263dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="75dp"
+                        android:layout_marginTop="343dp"
+                        android:elevation="4dp"
+                        android:gravity="right|center_vertical"
+                        android:text="@string/test_text"
+                        android:textColor="#C6BFBFD6"
+                        android:textSize="16dp" />
+
+                    <ImageButton
+                        android:id="@+id/mic"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="215dp"
+                        android:layout_marginTop="404dp"
+                        android:background="@drawable/mic"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="startOnClick"
+                        tools:ignore="UsingOnClickInXml" />
+
+                    <ImageButton
+                        android:id="@+id/stop_button"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="165dp"
+                        android:layout_marginTop="404dp"
+                        android:background="@drawable/stop"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="stopOnClick"
+                        tools:ignore="UsingOnClickInXml" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/cancel_button"
+                        android:layout_width="100dp"
+                        android:layout_height="54dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="75dp"
+                        android:background="@drawable/cancel"
+                        android:elevation="4dp" />
+
+                    <View
+                        android:id="@+id/submit_button"
+                        android:layout_width="100dp"
+                        android:layout_height="54dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="243dp"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/submit"
+                        android:elevation="4dp"
+                        android:onClick="submit" />
+
+                    <TextView
+                        android:id="@+id/cancel_text"
+                        android:layout_width="90dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="241dp"
+                        android:elevation="10dp"
+                        android:text="@string/cancel"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22dp" />
+
+                    <TextView
+                        android:id="@+id/submit_text"
+                        android:layout_width="90dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="73dp"
+                        android:clickable="true"
+                        android:elevation="4dp"
+                        android:focusable="true"
+                        android:onClick="submit"
+                        android:text="@string/submit"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22dp"
+                        tools:ignore="UsingOnClickInXml" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
