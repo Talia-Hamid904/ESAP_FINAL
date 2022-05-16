@@ -57,7 +57,7 @@
                         android:id="@+id/top_img"
                         android:layout_width="300dp"
                         android:layout_height="165dp"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="102dp"
                         android:layout_marginTop="66dp"
@@ -69,7 +69,7 @@
                         android:layout_width="301dp"
                         android:layout_height="100dp"
                         android:layout_alignParentTop="true"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginLeft="60dp"
                         android:layout_marginTop="235dp"
                         android:layout_marginRight="60dp"
@@ -81,9 +81,9 @@
                         android:layout_width="291dp"
                         android:layout_height="380dp"
                         android:layout_alignParentTop="true"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginTop="300dp"
-                        android:layout_marginRight="60dp"
+                        android:layout_marginEnd="60dp"
                         android:background="@drawable/msg_rect"
                         android:elevation="4dp" />
 
@@ -107,7 +107,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/input_report"
+                        android:id="@+id/report"
                         android:layout_width="252dp"
                         android:layout_height="334dp"
                         android:layout_alignStart="@+id/msg"
@@ -115,43 +115,19 @@
                         android:layout_alignEnd="@+id/msg"
                         android:layout_alignBottom="@+id/msg"
                         android:layout_marginStart="21dp"
-                        android:layout_marginTop="85dp"
+                        android:layout_marginTop="86dp"
                         android:layout_marginEnd="21dp"
-                        android:layout_marginBottom="26dp"
+                        android:layout_marginBottom="25dp"
+                        android:background="@color/white"
                         android:elevation="4dp"
                         android:gravity="top|right"
-                        android:text=""
                         android:textColor="@color/black"
                         android:textDirection="rtl"
                         android:textSize="18sp" />
 
-
-                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
-<!--                        android:id="@+id/input_report"-->
-<!--                        android:layout_width="252dp"-->
-<!--                        android:layout_height="334dp"-->
-<!--                        android:layout_alignStart="@+id/msg"-->
-<!--                        android:layout_alignTop="@+id/head"-->
-<!--                        android:layout_alignEnd="@+id/msg"-->
-<!--                        android:layout_alignBottom="@+id/msg"-->
-<!--                        android:layout_marginStart="21dp"-->
-<!--                        android:layout_marginTop="86dp"-->
-<!--                        android:layout_marginEnd="21dp"-->
-<!--                        android:layout_marginBottom="25dp"-->
-<!--                        android:elevation="4dp"-->
-<!--                        android:gravity="top|right"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:textDirection="rtl"-->
-<!--                        android:textSize="18sp" />-->
-
-
-
-
                 </RelativeLayout>
 
             </LinearLayout>
-
-
 
         </LinearLayout>
 

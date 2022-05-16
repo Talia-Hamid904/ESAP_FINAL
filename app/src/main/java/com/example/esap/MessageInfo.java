@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -43,7 +44,7 @@ public class MessageInfo extends AppCompatActivity {
         Intent intent = getIntent();
         service = intent.getStringExtra("key");
         String[] splitService = service.split(" ");
-        TextView msg = findViewById(R.id.input_report);
+        TextView msg = findViewById(R.id.report);
 
         if (splitService[0].equals("ambulance")) {
                msg.setText("آپ کی درخواست درج کر لی گئی ہے۔ آپ کی مدد کے لئے ایمبولینس جلد بھیج دی جائے گی۔");
@@ -53,10 +54,10 @@ public class MessageInfo extends AppCompatActivity {
         }
         double latitude = intent.getDoubleExtra("key2", 0.0);
         double longitude = intent.getDoubleExtra("key3", 0.0);
-        TextView location = findViewById(R.id.input_report);
+        TextView location = findViewById(R.id.report);
         location.setText("Lat: "+ latitude +"   Lon: "+longitude);
         String text = intent.getStringExtra("key4");
-        TextView userMsg = findViewById(R.id.input_report);
+        TextView userMsg = findViewById(R.id.report);
          userMsg.setText(text);
 
         addDataToFirestore(text,splitService[0] );
