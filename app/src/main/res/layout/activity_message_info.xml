@@ -79,13 +79,32 @@
                     <View
                         android:id="@+id/msg"
                         android:layout_width="291dp"
-                        android:layout_height="350dp"
+                        android:layout_height="380dp"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="300dp"
                         android:layout_marginRight="60dp"
                         android:background="@drawable/msg_rect"
                         android:elevation="4dp" />
+
+                    <TextView
+                        android:id="@+id/msg_heading"
+                        android:layout_width="170dp"
+                        android:layout_height="46dp"
+                        android:layout_alignStart="@+id/head"
+                        android:layout_alignTop="@+id/head"
+                        android:layout_alignEnd="@+id/head"
+                        android:layout_alignBottom="@+id/head"
+                        android:layout_marginStart="60dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginEnd="60dp"
+                        android:layout_marginBottom="40dp"
+                        android:elevation="4dp"
+                        android:text="@string/message_heading"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
 
