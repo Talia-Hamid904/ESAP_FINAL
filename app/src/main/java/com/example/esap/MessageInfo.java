@@ -44,7 +44,7 @@ public class MessageInfo extends AppCompatActivity {
         Intent intent = getIntent();
         service = intent.getStringExtra("key");
         String[] splitService = service.split(" ");
-        TextView msg = findViewById(R.id.report);
+        TextView msg = findViewById(R.id.report_confirm);
 
         if (splitService[0].equals("ambulance")) {
                msg.setText("آپ کی درخواست درج کر لی گئی ہے۔ آپ کی مدد کے لئے ایمبولینس جلد بھیج دی جائے گی۔");
@@ -54,7 +54,7 @@ public class MessageInfo extends AppCompatActivity {
         }
         double latitude = intent.getDoubleExtra("key2", 0.0);
         double longitude = intent.getDoubleExtra("key3", 0.0);
-        TextView location = findViewById(R.id.report);
+        TextView location = findViewById(R.id.report_location);
         location.setText("Lat: "+ latitude +"   Lon: "+longitude);
         String text = intent.getStringExtra("key4");
         TextView userMsg = findViewById(R.id.report);
@@ -66,7 +66,7 @@ public class MessageInfo extends AppCompatActivity {
 
             public void run() {
                 try {
-                    sleep(1000);
+                    sleep(5000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
@@ -80,7 +80,7 @@ public class MessageInfo extends AppCompatActivity {
 
             public void run() {
                 try {
-                    sleep(3000);
+                    sleep(5000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {

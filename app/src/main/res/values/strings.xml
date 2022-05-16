@@ -13,6 +13,7 @@
     <string name="title_activity_speech">SpeechActivity</string>
     <string name="test_text">لکھیے</string>
 
+    <string name="location">جاۓ وقوعہ</string>
     <string name="cancel">منسوخ</string>
 
     <string name="submit">درج</string>
