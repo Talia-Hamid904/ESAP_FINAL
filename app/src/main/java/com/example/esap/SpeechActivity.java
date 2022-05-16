@@ -80,6 +80,7 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
     public String msg = "";
     public double latitude;
     public double longitude;
+    String type;
     private static final int REQUEST_CODE_EMAIL = 1;
     String text ="";
 
@@ -113,6 +114,7 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speech);
         Intent intent = getIntent();
+        type = intent.getStringExtra("type");
         // UI initialisation
         returnedText = findViewById(R.id.speech_text);
         //returnedError = findViewById(R.id.speech_text);
@@ -159,7 +161,13 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
 
     }
     public void submit(View view){
-        sendMessage();
+        if(type==""){
+            sendMessage();
+        }
+        else{
+            serviceType=type;
+            getCurrentLocation();
+        }
 
     }
 
