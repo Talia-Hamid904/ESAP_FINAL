@@ -26,13 +26,13 @@
 
             <View
                 android:id="@+id/rectangle_2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="327dp"
+                android:layout_height="700dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="44dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="-77dp"
                 android:layout_marginEnd="44dp"
                 android:layout_marginRight="44dp"
                 android:background="@drawable/message_rect" />
@@ -57,8 +57,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="99dp"
-                android:layout_marginTop="30dp"
                 android:layout_marginRight="99dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/amb_3d" />
 
         </RelativeLayout>

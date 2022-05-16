@@ -3,47 +3,48 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
     android:width="301dp"
-    android:height="80dp"
+    android:height="443dp"
     android:viewportWidth="301"
-    android:viewportHeight="80"
+    android:viewportHeight="443"
     >
 
     <group>
 
         <clip-path
-            android:pathData="M15 0H286C294.284 0 301 6.71573 301 15V65C301 73.2843 294.284 80 286 80H15C6.71573 80 0 73.2843 0 65V15C0 6.71573 6.71573 0 15 0Z"
+            android:pathData="M0 0H301V443H0V0Z"
             />
 
         <group
             android:translateX="0"
             android:translateY="-11.689"
             android:pivotX="150.5"
-            android:pivotY="40"
+            android:pivotY="221.5"
             android:scaleX="2"
             android:scaleY="48.758"
             >
 
             <path
-                android:pathData="M0 0V80H301V0"
+                android:pathData="M0 0V443H301V0"
                 >
 
                 <aapt:attr name="android:fillColor">
 
                     <gradient
                         android:type="linear"
+                        android:fillAlpha="0.4"
                         android:startX="75.25"
-                        android:startY="40"
+                        android:startY="221.5"
                         android:endX="225.75"
-                        android:endY="40"
+                        android:endY="221.5"
                         >
 
                         <item
-                            android:color="#D63832"
+                            android:color="#CCCCCC"
                             android:offset="0"
                             />
 
                         <item
-                            android:color="#DA3832"
+                            android:color="#E0E0E0"
                             android:offset="0.333"
                             />
 
