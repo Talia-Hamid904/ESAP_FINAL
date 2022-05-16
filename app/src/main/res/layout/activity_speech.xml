@@ -145,7 +145,7 @@
                         android:onClick="stopOnClick"
                         tools:ignore="UsingOnClickInXml" />
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/speech_text"
                         android:layout_width="272dp"
                         android:layout_height="264dp"
