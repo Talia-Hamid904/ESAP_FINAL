@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.esap">
 
     <queries>
@@ -23,16 +24,21 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ESAP_FINAL">
+        android:theme="@style/Theme.ESAP_FINAL"
+        tools:targetApi="m">
         <activity
             android:name=".HelpImages"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_splash_screen"
             android:theme="@style/Theme.ESAP_FINAL.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
 
         </activity>
@@ -47,12 +53,8 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
