@@ -55,12 +55,12 @@
 
                     <View
                         android:id="@+id/top_img"
-                        android:layout_width="270dp"
-                        android:layout_height="200dp"
+                        android:layout_width="300dp"
+                        android:layout_height="180dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginLeft="99dp"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="103dp"
+                        android:layout_marginTop="50dp"
                         android:layout_marginRight="99dp"
                         android:background="@drawable/amb_3d" />
 
