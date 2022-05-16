@@ -161,7 +161,7 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
 
     }
     public void submit(View view){
-        if(type==""){
+        if(type.equals("")){
             sendMessage();
         }
         else{
@@ -446,7 +446,7 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
         String message = text ;
         OkHttpClient okHttpClient = new OkHttpClient();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.7.166.171:5005/webhooks/rest/")
+                .baseUrl("http://10.7.166.141:5005/webhooks/rest/")
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -480,6 +480,7 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
             @Override
             public void onFailure(Call<List<BotResponse>> call, Throwable t) {
                 Log.i("Failure","Waiting for message");
+                Log.i("error", t.getMessage());
                 Toast.makeText(SpeechActivity.this,""+t.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
