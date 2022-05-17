@@ -403,8 +403,8 @@
 
                     <ImageButton
                         android:id="@+id/imageButton2"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
                         android:layout_alignStart="@+id/imageButton13"
                         android:layout_alignTop="@+id/imageButton13"
                         android:layout_alignEnd="@+id/imageButton13"
