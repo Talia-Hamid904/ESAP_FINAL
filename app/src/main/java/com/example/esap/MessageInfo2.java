@@ -6,7 +6,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -19,13 +18,11 @@ import android.location.Geocoder;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -34,7 +31,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class MessageInfo extends AppCompatActivity {
+public class MessageInfo2 extends AppCompatActivity {
 
     private String phoneNo;
     private String phoneNoSrc;
@@ -42,23 +39,22 @@ public class MessageInfo extends AppCompatActivity {
     String service;
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 0;
     private FirebaseFirestore db;
-    String[] splitService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message_info);
+        setContentView(R.layout.activity_message_info2);
         db = FirebaseFirestore.getInstance();
         Intent intent = getIntent();
         service = intent.getStringExtra("key");
-        splitService = service.split(" ");
+       // String[] splitService = service.split(" ");
         TextView msg = findViewById(R.id.report_confirm);
 
-        if (splitService[0].equals("ambulance")) {
-               msg.setText("آپ کی درخواست درج کر لی گئی ہے۔ آپ کی مدد کے لئے ایمبولینس جلد بھیج دی جائے گی۔");
+        if (service.equals("ambulance")) {
+            msg.setText("آپ کی درخواست درج کر لی گئی ہے۔ آپ کی مدد کے لئے ایمبولینس جلد بھیج دی جائے گی۔");
         }
-        if (splitService[0].equals("firebrigade")) {
-               msg.setText("آپ کی درخواست درج کر لی گئی ہے۔ آپ کی مدد کے لئے فائیربریگیڈ جلد بھیج دی جائے گی۔");
+        if (service.equals("firebrigade")) {
+            msg.setText("آپ کی درخواست درج کر لی گئی ہے۔ آپ کی مدد کے لئے فائیربریگیڈ جلد بھیج دی جائے گی۔");
         }
         double latitude = intent.getDoubleExtra("key2", 0.0);
         double longitude = intent.getDoubleExtra("key3", 0.0);
@@ -67,15 +63,15 @@ public class MessageInfo extends AppCompatActivity {
         location.setText(address);
         String text = intent.getStringExtra("key4");
         TextView userMsg = findViewById(R.id.report);
-         userMsg.setText(text);
+        userMsg.setText(text);
 
-        addDataToFirestore(text,splitService[0] );
+        addDataToFirestore(text,service );
 
         Thread thread1 = new Thread() {
 
             public void run() {
                 try {
-                    sleep(5000);
+                    sleep(1000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
@@ -94,7 +90,7 @@ public class MessageInfo extends AppCompatActivity {
                     e.printStackTrace();
                 } finally {
 
-                    Intent intent = new Intent(MessageInfo.this, HelpImages.class);
+                    Intent intent = new Intent(MessageInfo2.this, HelpImages.class);
                     intent.putExtra("key", service);
                     startActivity(intent);
                 }
@@ -102,7 +98,6 @@ public class MessageInfo extends AppCompatActivity {
         };
         thread1.start();
         thread.start();
-
 
     }
 
@@ -123,9 +118,10 @@ public class MessageInfo extends AppCompatActivity {
         }
         return null;
     }
+
     protected void sendSMSMessage() {
-        phoneNo = "03155903128";
-        phoneNoSrc = "03155903128";
+        phoneNo = "03036765805";
+        phoneNoSrc = "03036765805";
         message = "ambulance";
 
         if (ContextCompat.checkSelfPermission(this,
@@ -236,16 +232,15 @@ public class MessageInfo extends AppCompatActivity {
             public void onSuccess(DocumentReference documentReference) {
                 // after the data addition is successful
                 // we are displaying a success toast message.
-                Toast.makeText(MessageInfo.this, "Your Data has been added to Firebase Firestore", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MessageInfo2.this, "Your Data has been added to Firebase Firestore", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 // this method is called when the data addition process is failed.
                 // displaying a toast message when data addition is failed.
-                Toast.makeText(MessageInfo.this, "Fail to add data \n" + e, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MessageInfo2.this, "Fail to add data \n" + e, Toast.LENGTH_SHORT).show();
             }
         });
     }
 }
-

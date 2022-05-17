@@ -90,8 +90,6 @@
                         android:elevation="4dp" />
 
 
-
-
                     <View
                         android:id="@+id/rectangle_3"
                         android:layout_width="286dp"
@@ -214,8 +212,8 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="241dp"
-                        android:elevation="10dp"
                         android:clickable="true"
+                        android:elevation="10dp"
                         android:onClick="cancel"
                         android:text="@string/cancel"
                         android:textAlignment="center"

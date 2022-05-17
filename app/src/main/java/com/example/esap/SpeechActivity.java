@@ -80,7 +80,7 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
     public String msg = "";
     public double latitude;
     public double longitude;
-    String type;
+    private String type;
     private static final int REQUEST_CODE_EMAIL = 1;
     String text ="";
 

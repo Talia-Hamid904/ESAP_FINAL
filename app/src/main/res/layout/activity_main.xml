@@ -342,7 +342,6 @@
                         android:id="@+id/imageButton11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:onClick="onClickAmbulance"
                         android:layout_alignStart="@+id/rectangle_7"
                         android:layout_alignEnd="@+id/rectangle_7"
                         android:layout_alignBottom="@+id/rectangle_7"
@@ -352,13 +351,13 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="143dp"
                         android:background="@drawable/rectangle_7"
-                        android:elevation="4dp" />
+                        android:elevation="4dp"
+                        android:onClick="onClickAmbulance" />
 
                     <ImageButton
                         android:id="@+id/imageButton12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:onClick="onClickFireBrigade"
                         android:layout_alignStart="@+id/rectangle_7"
                         android:layout_alignEnd="@+id/rectangle_7"
                         android:layout_alignBottom="@+id/rectangle_7"
@@ -368,7 +367,8 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/rectangle_7"
-                        android:elevation="4dp" />
+                        android:elevation="4dp"
+                        android:onClick="onClickFireBrigade" />
 
                     <TextView
                         android:id="@+id/textView3"
@@ -398,7 +398,8 @@
                         android:layout_marginEnd="215dp"
                         android:background="@drawable/circle"
                         android:elevation="4dp"
-                        android:scaleType="fitCenter" />
+                        android:scaleType="fitCenter"
+                        android:onClick="onClickAmbulance"/>
 
                     <ImageButton
                         android:id="@+id/imageButton2"
@@ -429,8 +430,7 @@
                         android:layout_marginEnd="215dp"
                         android:background="@drawable/circle"
                         android:elevation="4dp"
-                        android:scaleType="fitCenter"
-                        />
+                        android:scaleType="fitCenter" />
 
                     <ImageButton
                         android:id="@+id/imageButton15"
@@ -448,6 +448,7 @@
                         android:background="@drawable/ambulance"
                         android:elevation="4dp"
                         android:scaleType="fitCenter"
+                        android:onClick="onClickFireBrigade"
                         app:srcCompat="@drawable/firebrigade" />
 
                     <TextView
