@@ -18,7 +18,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -104,7 +105,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="24sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/msg_heading2"
@@ -114,10 +115,10 @@
                         android:layout_alignTop="@+id/head"
                         android:layout_alignEnd="@+id/head"
                         android:layout_alignBottom="@+id/head"
-                        android:layout_marginStart="60dp"
-                        android:layout_marginTop="229dp"
-                        android:layout_marginEnd="60dp"
-                        android:layout_marginBottom="-175dp"
+                        android:layout_marginStart="61dp"
+                        android:layout_marginTop="259dp"
+                        android:layout_marginEnd="59dp"
+                        android:layout_marginBottom="-205dp"
                         android:elevation="4dp"
                         android:text="@string/location"
                         android:textAlignment="center"
@@ -127,39 +128,16 @@
 
                     <TextView
                         android:id="@+id/report"
-                        android:layout_width="247dp"
-                        android:layout_height="130dp"
+                        android:layout_width="245dp"
+                        android:layout_height="210dp"
                         android:layout_alignStart="@+id/msg"
                         android:layout_alignTop="@+id/head"
                         android:layout_alignEnd="@+id/msg"
                         android:layout_alignBottom="@+id/msg"
-                        android:layout_marginStart="22dp"
+                        android:layout_marginStart="23dp"
                         android:layout_marginTop="84dp"
-                        android:layout_marginEnd="22dp"
-                        android:layout_marginBottom="231dp"
-                        android:background="@color/white"
-                        android:elevation="4dp"
-                        android:gravity="top|right"
-                        android:textColor="@color/black"
-                        android:textDirection="rtl"
-                        android:textSize="18sp"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"/>
-
-                    <TextView
-                        android:id="@+id/report_location"
-                        android:layout_width="246dp"
-                        android:layout_height="74dp"
-                        android:layout_alignStart="@+id/msg"
-                        android:layout_alignTop="@+id/head"
-                        android:layout_alignEnd="@+id/msg"
-                        android:layout_alignBottom="@+id/msg"
-                        android:layout_marginStart="22dp"
-                        android:layout_marginTop="281dp"
-                        android:layout_marginEnd="22dp"
-                        android:layout_marginBottom="90dp"
+                        android:layout_marginEnd="23dp"
+                        android:layout_marginBottom="197dp"
                         android:background="@color/white"
                         android:elevation="4dp"
                         android:gravity="top|right"
@@ -172,17 +150,17 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/report_confirm"
-                        android:layout_width="246dp"
-                        android:layout_height="74dp"
+                        android:id="@+id/report_location"
+                        android:layout_width="245dp"
+                        android:layout_height="165dp"
                         android:layout_alignStart="@+id/msg"
                         android:layout_alignTop="@+id/head"
                         android:layout_alignEnd="@+id/msg"
                         android:layout_alignBottom="@+id/msg"
-                        android:layout_marginStart="22dp"
-                        android:layout_marginTop="363dp"
-                        android:layout_marginEnd="22dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="23dp"
+                        android:layout_marginTop="308dp"
+                        android:layout_marginEnd="23dp"
+                        android:layout_marginBottom="19dp"
                         android:background="@color/white"
                         android:elevation="4dp"
                         android:gravity="top|right"
@@ -190,7 +168,54 @@
                         android:paddingTop="10dp"
                         android:paddingRight="10dp"
                         android:paddingBottom="10dp"
-                        android:textColor="#B53737"
+                        android:textColor="@color/black"
+                        android:textDirection="rtl"
+                        android:textSize="18sp" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/imageButton10"
+                        android:layout_width="327dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginRight="45dp"
+                        android:background="@drawable/inner_rect"
+                        app:srcCompat="@drawable/inner_rect" />
+
+                    <TextView
+                        android:id="@+id/report_confirm"
+                        android:layout_width="245dp"
+                        android:layout_height="165dp"
+                        android:layout_alignStart="@+id/imageButton10"
+                        android:layout_alignEnd="@+id/imageButton10"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="17dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@color/white"
+                        android:elevation="4dp"
+                        android:gravity="top|right"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="#DA3832"
                         android:textDirection="rtl"
                         android:textSize="18sp" />
 
