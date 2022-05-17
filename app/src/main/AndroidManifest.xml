@@ -27,6 +27,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".OTPActivity"
+            android:exported="false" />
+        <activity
             android:name=".MessageInfo2"
             android:exported="false" />
         <activity
@@ -45,13 +48,13 @@
         </activity>
         <activity
             android:name=".MessageInfo"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".SpeechActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>
