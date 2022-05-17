@@ -54,14 +54,14 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="516dp">
 
                     <ImageButton
                         android:id="@+id/imageButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
+                        android:layout_width="371dp"
+                        android:layout_height="489dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
                         android:background="@drawable/rect" />
 
                     <ProgressBar
@@ -81,11 +81,11 @@
 
                     <View
                         android:id="@+id/rectangle_2"
-                        android:layout_width="283dp"
-                        android:layout_height="290dp"
+                        android:layout_width="289dp"
+                        android:layout_height="327dp"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="27dp"
+                        android:layout_marginTop="20dp"
                         android:background="@drawable/inner_rect"
                         android:elevation="4dp" />
 
@@ -94,9 +94,10 @@
                         android:id="@+id/rectangle_3"
                         android:layout_width="286dp"
                         android:layout_height="58dp"
+                        android:layout_alignEnd="@+id/imageButton"
                         android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="332dp"
+                        android:layout_marginTop="361dp"
+                        android:layout_marginEnd="23dp"
                         android:background="@drawable/inner_rect_2"
                         android:elevation="4dp" />
 
@@ -107,13 +108,14 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
                         android:layout_centerInParent="true"
-                        android:layout_marginLeft="75dp"
-                        android:layout_marginTop="346dp"
+                        android:layout_marginLeft="74dp"
+                        android:layout_marginTop="375dp"
                         android:elevation="4dp"
                         android:gravity="right|center_vertical"
                         android:hint="@string/test_text"
                         android:textColorHint="#C6BFBFD6"
                         android:textSize="18dp" />
+
 
                     <ImageButton
                         android:id="@+id/mic"
@@ -121,8 +123,8 @@
                         android:layout_height="28dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginLeft="215dp"
-                        android:layout_marginTop="404dp"
+                        android:layout_marginLeft="225dp"
+                        android:layout_marginTop="447dp"
                         android:background="@drawable/mic"
                         android:clickable="true"
                         android:focusable="true"
@@ -135,8 +137,8 @@
                         android:layout_height="28dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginLeft="165dp"
-                        android:layout_marginTop="404dp"
+                        android:layout_marginLeft="155dp"
+                        android:layout_marginTop="447dp"
                         android:background="@drawable/stop"
                         android:clickable="true"
                         android:focusable="true"
@@ -145,15 +147,15 @@
 
                     <TextView
                         android:id="@+id/speech_text"
-                        android:layout_width="272dp"
-                        android:layout_height="264dp"
+                        android:layout_width="267dp"
+                        android:layout_height="292dp"
                         android:layout_alignEnd="@+id/rectangle_2"
                         android:layout_alignBottom="@+id/rectangle_2"
                         android:layout_centerInParent="true"
                         android:layout_marginStart="68dp"
                         android:layout_marginLeft="83dp"
                         android:layout_marginTop="40dp"
-                        android:layout_marginEnd="5dp"
+                        android:layout_marginEnd="10dp"
                         android:layout_marginBottom="15dp"
                         android:background="@color/white"
                         android:elevation="4dp"
@@ -175,7 +177,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="70dp"
                 android:orientation="horizontal">
 
                 <RelativeLayout
