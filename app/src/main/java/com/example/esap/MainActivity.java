@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
         btn = (AppCompatButton) findViewById(R.id.button) ;
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        locationRequest.setInterval(3000);
-        locationRequest.setFastestInterval(1000);
+        /*locationRequest.setInterval(2000);
+        locationRequest.setFastestInterval(1000);*/
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -131,8 +131,8 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
         progressBar.setVisibility(View.INVISIBLE);
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        locationRequest.setInterval(5000);
-        locationRequest.setFastestInterval(2000);
+/*        locationRequest.setInterval(5000);
+        locationRequest.setFastestInterval(2000);*/
         setRecogniserIntent();
 
 
@@ -461,7 +461,7 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
         String message = msg ;
         OkHttpClient okHttpClient = new OkHttpClient();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.7.110.30:5005/webhooks/rest/")
+                .baseUrl("http://10.7.166.35:5005/webhooks/rest/")
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
