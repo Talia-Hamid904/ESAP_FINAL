@@ -65,7 +65,7 @@ public class MessageInfo2 extends AppCompatActivity {
         TextView userMsg = findViewById(R.id.report);
         userMsg.setText(text);
 
-        addDataToFirestore(text,service );
+        addDataToFirestore(text,service, address );
 
         Thread thread1 = new Thread() {
 
@@ -217,14 +217,14 @@ public class MessageInfo2 extends AppCompatActivity {
 
     }
 
-    private void addDataToFirestore(String user_msg, String resp) {
+    private void addDataToFirestore(String user_msg, String resp, String loc) {
 
         // creating a collection reference
         // for our Firebase Firestore database.
         CollectionReference dbCourses = db.collection("user_msg_resp");
 
         // adding our data to our courses object class.
-        firebase_msg_resp data = new firebase_msg_resp(user_msg, resp);
+        firebase_msg_resp data = new firebase_msg_resp(user_msg, resp, loc);
 
         // below method is use to add data to Firebase Firestore.
         dbCourses.add(data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

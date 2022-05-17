@@ -47,6 +47,8 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResponse;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
 import com.google.android.gms.auth.GoogleAuthException;
@@ -56,6 +58,7 @@ import com.google.android.gms.auth.UserRecoverableAuthException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -64,6 +67,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.ml.naturallanguage.FirebaseNaturalLanguage;
+import com.google.firebase.ml.naturallanguage.languageid.FirebaseLanguageIdentification;
 
 
 public class SpeechActivity extends AppCompatActivity implements RecognitionListener {
@@ -72,12 +78,14 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
     private static String serviceType;
     private TextView returnedText;
     private TextView returnedError;
+    private TextInputEditText writtenText;
     private ProgressBar progressBar;
     private SpeechRecognizer speech = null;
     private Intent recognizerIntent;
     private String LOG_TAG = "VoiceRecognitionActivity";
     private boolean performingSpeechSetup;
     public String msg = "";
+    private String textFromField ="";
     public double latitude;
     public double longitude;
     private String type;
@@ -117,6 +125,7 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
         type = intent.getStringExtra("type");
         // UI initialisation
         returnedText = findViewById(R.id.speech_text);
+         writtenText = findViewById(R.id.text_8);
         //returnedError = findViewById(R.id.speech_text);
         progressBar = findViewById(R.id.progressBar1);
         progressBar.setVisibility(View.INVISIBLE);
@@ -162,7 +171,13 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
     }
     public void submit(View view){
         if(type.equals("")){
-            sendMessage();
+            textFromField = writtenText.getText().toString();
+            if (textFromField.isEmpty()){
+                sendMessage(msg);
+            }
+            else{
+                identifyLanguageUsingFirebase(textFromField);
+            }
         }
         else{
             serviceType=type;
@@ -442,11 +457,11 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
         return message;
     }
 
-    private void sendMessage() {
-        String message = text ;
+    private void sendMessage(String msg) {
+        String message = msg ;
         OkHttpClient okHttpClient = new OkHttpClient();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.7.166.141:5005/webhooks/rest/")
+                .baseUrl("http://10.7.110.30:5005/webhooks/rest/")
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -457,7 +472,7 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
         } else {
             Log.i("Message", message);
 
-            userMessage = new UserMessage("User",msg);
+            userMessage = new UserMessage("User", this.msg);
         }
         Toast.makeText(SpeechActivity.this, ""+userMessage.getMessage(), Toast.LENGTH_LONG).show();
         MessageSender messageSender = retrofit.create(MessageSender.class);
@@ -493,6 +508,47 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
     public void cancel(View view) {
         Intent myIntent = new Intent(SpeechActivity.this, MainActivity.class);
         SpeechActivity.this.startActivity(myIntent);
+    }
+
+    public void identifyLanguageUsingFirebase(String Inputtext) {
+        FirebaseLanguageIdentification languageIdentifier =
+                FirebaseNaturalLanguage.getInstance().getLanguageIdentification();
+        languageIdentifier.identifyLanguage(Inputtext)
+                .addOnSuccessListener(
+                        new OnSuccessListener<String>() {
+                            @Override
+                            public void onSuccess(@Nullable String languageCode) {
+                                if (languageCode != "und") {
+                                    //create Locale object to convert
+                                    //BCP language code to language name
+                                    Locale loc = new Locale(languageCode);
+                                    if(!loc.getDisplayLanguage().equals("Urdu")){
+                                        Toast.makeText(SpeechActivity.this,
+                                                "Kindly enter the text in urdu",
+                                                Toast.LENGTH_LONG).show();
+                                    }
+                                    else{
+
+                                        sendMessage(Inputtext);
+                                    }
+                                    //language.setText("The text is in " + loc.getDisplayLanguage());
+                                } else {
+                                    Toast.makeText(SpeechActivity.this,
+                                            "Language could not be identified",
+                                            Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        })
+                .addOnFailureListener(
+                        new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.e("Language id", "exception processing " + e);
+                                Toast.makeText(SpeechActivity.this,
+                                        "Language could not be identified",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });
     }
 
 
