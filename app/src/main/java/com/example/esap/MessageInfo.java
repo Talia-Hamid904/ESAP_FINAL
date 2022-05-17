@@ -26,6 +26,8 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -68,8 +70,9 @@ public class MessageInfo extends AppCompatActivity {
         String text = intent.getStringExtra("key4");
         TextView userMsg = findViewById(R.id.report);
          userMsg.setText(text);
-
-        addDataToFirestore(text,splitService[0], address );
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        String userPhoneNo = currentUser.getPhoneNumber();
+        addDataToFirestore(text,splitService[0], address, userPhoneNo );
 
         Thread thread1 = new Thread() {
 
@@ -221,14 +224,14 @@ public class MessageInfo extends AppCompatActivity {
 
     }
 
-    private void addDataToFirestore(String user_msg, String resp, String loc) {
+    private void addDataToFirestore(String user_msg, String resp, String loc, String userPhone) {
 
         // creating a collection reference
         // for our Firebase Firestore database.
         CollectionReference dbCourses = db.collection("user_msg_resp");
 
         // adding our data to our courses object class.
-        firebase_msg_resp data = new firebase_msg_resp(user_msg, resp, loc);
+        firebase_msg_resp data = new firebase_msg_resp(user_msg, resp, loc, userPhone);
 
         // below method is use to add data to Firebase Firestore.
         dbCourses.add(data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

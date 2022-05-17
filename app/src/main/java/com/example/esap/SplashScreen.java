@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SplashScreen extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,11 +28,17 @@ public class SplashScreen extends AppCompatActivity {
                 }
                 finally {
                     FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-//                    Log.i("currentUser", currentUser.toString());
+                  //  currentUser.getDisplayName();
+                    Log.i("currentUser", currentUser.toString());
                     Intent intent;
                     if(currentUser != null)
                     {
+                        /*Log.i("userName", currentUser.getDisplayName());
+                        Log.i("userPhone", currentUser.getPhoneNumber());
+                        Log.i("userEmail", currentUser.getEmail());*/
+                       // String userPhoneNo = currentUser.getPhoneNumber();
                         intent = new Intent(SplashScreen.this, MainActivity.class);
+                       // intent.putExtra("userPhone", userPhoneNo);
                         // send user to mainactivity
                     }
                     else{

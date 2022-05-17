@@ -17,11 +17,13 @@ import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
+
 public class OTPActivity extends AppCompatActivity {
 
     // variable for FirebaseAuth class
@@ -65,7 +67,7 @@ public class OTPActivity extends AppCompatActivity {
                 } else {
                     // if the text field is not empty we are calling our
                     // send OTP method for getting OTP from Firebase.
-                    String phone = "+92" + edtPhone.getText().toString();
+                    String phone = edtPhone.getText().toString();
                     sendVerificationCode(phone);
                 }
             }
@@ -100,7 +102,10 @@ public class OTPActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // if the code is correct and the task is successful
                             // we are sending our user to new activity.
+                            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                            //String userPhoneNo = currentUser.getPhoneNumber();
                             Intent i = new Intent(OTPActivity.this, MainActivity.class);
+                           // i.putExtra("userPhone", userPhoneNo);
                             startActivity(i);
                             finish();
                         } else {
