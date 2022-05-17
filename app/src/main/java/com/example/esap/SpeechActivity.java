@@ -461,7 +461,7 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
         String message = msg ;
         OkHttpClient okHttpClient = new OkHttpClient();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.7.166.35:5005/webhooks/rest/")
+                .baseUrl("http://10.7.109.197:5005/webhooks/rest/")
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
