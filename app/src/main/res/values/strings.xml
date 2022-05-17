@@ -28,6 +28,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="message_heading">آپ کی درخواست</string>
-
+    <string name="report">رپورٹ</string>
 
 </resources>
