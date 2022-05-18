@@ -36,5 +36,6 @@ public class HelpImages extends AppCompatActivity {
 ////            imageView3.setImageResource(R.drawable.snakebite);
 //        }
 
+        super.onCreate(savedInstanceState);
     }
 }
