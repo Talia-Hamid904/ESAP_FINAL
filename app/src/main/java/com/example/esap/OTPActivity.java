@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import androidx.appcompat.widget.AppCompatButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -34,7 +35,7 @@ public class OTPActivity extends AppCompatActivity {
     private EditText edtPhone, edtOTP;
 
     // buttons for generating OTP and verifying OTP
-    private Button verifyOTPBtn, generateOTPBtn;
+    private AppCompatButton verifyOTPBtn, generateOTPBtn;
 
     // string for storing our verification ID
     private String verificationId;
