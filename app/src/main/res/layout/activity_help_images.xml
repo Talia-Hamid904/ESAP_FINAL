@@ -83,7 +83,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="113dp"
+                        android:layout_marginTop="111dp"
                         android:layout_marginEnd="60dp"
                         android:background="@drawable/msg_rect"
                         android:elevation="5dp" />
@@ -102,6 +102,40 @@
                         android:layout_marginRight="60dp"
                         android:background="@drawable/half_curve_black"
                         android:elevation="4dp" />
+
+
+                    <View
+                        android:id="@+id/pic1"
+                        android:layout_width="267dp"
+                        android:layout_height="154dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginTop="142dp"
+                        android:background="@drawable/rectangle_3"
+                        android:elevation="5dp" />
+
+                    <View
+                        android:id="@+id/pic2"
+                        android:layout_width="267dp"
+                        android:layout_height="154dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="73dp"
+                        android:layout_marginTop="331dp"
+                        android:background="@drawable/rectangle_3"
+                        android:elevation="5dp" />
+
+                    <View
+                        android:id="@+id/pic3"
+                        android:layout_width="267dp"
+                        android:layout_height="154dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="74dp"
+                        android:layout_marginTop="517dp"
+                        android:background="@drawable/rectangle_3"
+                        android:elevation="5dp" />
 
 
                 </RelativeLayout>

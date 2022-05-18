@@ -6,35 +6,36 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 public class HelpImages extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        Intent intent = getIntent();
-//        setContentView(R.layout.activity_help_images);
-//        String service = intent.getStringExtra("key");
-//        String[] splitService= service.split(" ");
-//        Log.i("splitService", splitService[0] );
-//        if(splitService[0].equals("firebrigade")){
-//            ImageView imageView = (ImageView) findViewById(R.id.imageView12);
-//            imageView.setImageResource(R.drawable.fire400);
-//            ImageView imageView2 = (ImageView) findViewById(R.id.imageView19);
-//            imageView2.setImageResource(R.drawable.burn400);
-//            ImageView imageView3 = (ImageView) findViewById(R.id.imageView21);
-//            imageView3.setImageResource(R.drawable.burn400);
-//        }
-//        else{
-//            Log.i("splitService", splitService[0] );
-//            ImageView imageView = (ImageView) findViewById(R.id.imageView12);
-//            imageView.setImageResource(R.drawable.injury400);
-//            ImageView imageView2 = (ImageView) findViewById(R.id.imageView19);
-//            imageView2.setImageResource(R.drawable.heatstroke400);
-////            ImageView imageView3 = (ImageView) findViewById(R.id.imageView21);
-////            imageView3.setImageResource(R.drawable.snakebite);
-//        }
+        super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        setContentView(R.layout.activity_help_images);
+        String service = intent.getStringExtra("key");
+        String[] splitService= service.split(" ");
+        Log.i("splitService", splitService[0] );
+        if(splitService[0].equals("firebrigade")){
+            View imageView = (View) findViewById(R.id.pic1);
+            imageView.setBackgroundResource(R.drawable.fire400);
+            View imageView2 = (View) findViewById(R.id.pic2);
+            imageView2.setBackgroundResource(R.drawable.burn400);
+            View imageView3 = (View) findViewById(R.id.pic3);
+            imageView3.setBackgroundResource(R.drawable.burn400);
+        }
+        else{
+            Log.i("splitService", splitService[0] );
+            View imageView = (View) findViewById(R.id.pic1);
+            imageView.setBackgroundResource(R.drawable.injury400);
+            View imageView2 = (View) findViewById(R.id.pic2);
+            imageView2.setBackgroundResource(R.drawable.heatstroke400);
+            View imageView3 = (View) findViewById(R.id.pic3);
+            imageView3.setBackgroundResource(R.drawable.snakebite);
+        }
 
     }
 }
