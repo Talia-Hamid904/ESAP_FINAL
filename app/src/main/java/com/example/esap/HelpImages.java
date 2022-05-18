@@ -17,18 +17,17 @@ public class HelpImages extends AppCompatActivity {
         Intent intent = getIntent();
         setContentView(R.layout.activity_help_images);
         String service = intent.getStringExtra("key");
-        String[] splitService= service.split(" ");
-        Log.i("splitService", splitService[0] );
-        if(splitService[0].equals("firebrigade")){
+        String[] splitService = service.split(" ");
+        Log.i("splitService", splitService[0]);
+        if (splitService[0].equals("firebrigade")) {
             View imageView = (View) findViewById(R.id.pic1);
             imageView.setBackgroundResource(R.drawable.fire400);
             View imageView2 = (View) findViewById(R.id.pic2);
             imageView2.setBackgroundResource(R.drawable.burn400);
             View imageView3 = (View) findViewById(R.id.pic3);
             imageView3.setBackgroundResource(R.drawable.burn400);
-        }
-        else{
-            Log.i("splitService", splitService[0] );
+        } else {
+            Log.i("splitService", splitService[0]);
             View imageView = (View) findViewById(R.id.pic1);
             imageView.setBackgroundResource(R.drawable.injury400);
             View imageView2 = (View) findViewById(R.id.pic2);
@@ -36,7 +35,5 @@ public class HelpImages extends AppCompatActivity {
             View imageView3 = (View) findViewById(R.id.pic3);
             imageView3.setBackgroundResource(R.drawable.snakebite);
         }
-
-        super.onCreate(savedInstanceState);
     }
 }
