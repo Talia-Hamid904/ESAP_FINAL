@@ -75,11 +75,10 @@ public class MessageInfo2 extends AppCompatActivity {
 
             public void run() {
                 try {
-                    sleep(1000);
+                    sendSMSMessage();
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    sendSMSMessage();
 
                 }
             }

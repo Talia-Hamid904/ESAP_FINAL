@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.widget.AppCompatButton;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.appcompat.widget.AppCompatEditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,7 +33,7 @@ public class OTPActivity extends AppCompatActivity {
 
     // variable for our text input
     // field for phone and OTP.
-    private EditText edtPhone, edtOTP;
+    private AppCompatEditText edtPhone, edtOTP;
 
     // buttons for generating OTP and verifying OTP
     private AppCompatButton verifyOTPBtn, generateOTPBtn;

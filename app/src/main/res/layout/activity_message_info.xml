@@ -14,7 +14,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="-30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,13 +35,13 @@
                     <View
                         android:id="@+id/rectangle_2"
                         android:layout_width="wrap_content"
-                        android:layout_height="907dp"
+                        android:layout_height="878dp"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginStart="40dp"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="-1dp"
-                        android:layout_marginEnd="40dp"
+                        android:layout_marginEnd="20dp"
                         android:background="@drawable/message_rect" />
 
                     <View
@@ -55,7 +56,7 @@
                         android:layout_marginEnd="-28dp"
                         android:background="@drawable/ellipse" />
 
-                    <View
+                    <ImageView
                         android:id="@+id/top_img"
                         android:layout_width="300dp"
                         android:layout_height="165dp"
@@ -70,24 +71,27 @@
                         android:id="@+id/head"
                         android:layout_width="301dp"
                         android:layout_height="100dp"
+                        android:layout_alignStart="@+id/rectangle_2"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginLeft="60dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="40dp"
+                        android:layout_marginLeft="20dp"
                         android:layout_marginTop="235dp"
-                        android:layout_marginRight="60dp"
+                        android:layout_marginRight="40dp"
                         android:background="@drawable/half_curve"
                         android:elevation="4dp" />
 
                     <View
                         android:id="@+id/msg"
                         android:layout_width="293dp"
-                        android:layout_height="579dp"
+                        android:layout_height="560dp"
                         android:layout_alignStart="@+id/rectangle_2"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="300dp"
-                        android:layout_marginEnd="60dp"
+                        android:layout_marginEnd="40dp"
                         android:background="@drawable/msg_rect"
                         android:elevation="4dp" />
 
@@ -111,44 +115,6 @@
                         android:textStyle="bold"/>
 
                     <TextView
-                        android:id="@+id/msg_heading2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="64dp"
-                        android:layout_alignStart="@+id/head"
-                        android:layout_alignTop="@+id/head"
-                        android:layout_alignEnd="@+id/head"
-                        android:layout_alignBottom="@+id/head"
-                        android:layout_marginStart="60dp"
-                        android:layout_marginTop="240dp"
-                        android:layout_marginEnd="60dp"
-                        android:layout_marginBottom="-181dp"
-                        android:elevation="4dp"
-                        android:text="@string/location"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/msg_heading3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/head"
-                        android:layout_alignTop="@+id/head"
-                        android:layout_alignEnd="@+id/head"
-                        android:layout_alignBottom="@+id/head"
-                        android:layout_marginStart="58dp"
-                        android:layout_marginTop="402dp"
-                        android:layout_marginEnd="62dp"
-                        android:layout_marginBottom="-348dp"
-                        android:elevation="4dp"
-                        android:text="@string/report"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
-
-                    <TextView
                         android:id="@+id/report"
                         android:layout_width="247dp"
                         android:layout_height="170dp"
@@ -157,9 +123,9 @@
                         android:layout_alignEnd="@+id/msg"
                         android:layout_alignBottom="@+id/msg"
                         android:layout_marginStart="23dp"
-                        android:layout_marginTop="81dp"
+                        android:layout_marginTop="100dp"
                         android:layout_marginEnd="23dp"
-                        android:layout_marginBottom="404dp"
+                        android:layout_marginBottom="420dp"
                         android:background="@color/white"
                         android:elevation="4dp"
                         android:gravity="top|right"
@@ -169,7 +135,7 @@
                         android:paddingBottom="10dp"
                         android:textColor="@color/black"
                         android:textDirection="rtl"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/report_location"
@@ -180,9 +146,9 @@
                         android:layout_alignEnd="@+id/msg"
                         android:layout_alignBottom="@+id/msg"
                         android:layout_marginStart="22dp"
-                        android:layout_marginTop="283dp"
+                        android:layout_marginTop="270dp"
                         android:layout_marginEnd="26dp"
-                        android:layout_marginBottom="245dp"
+                        android:layout_marginBottom="248dp"
                         android:background="@color/white"
                         android:elevation="4dp"
                         android:gravity="top|right"
@@ -192,7 +158,7 @@
                         android:paddingBottom="10dp"
                         android:textColor="@color/black"
                         android:textDirection="rtl"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/report_confirm"
@@ -202,8 +168,8 @@
                         android:layout_alignEnd="@+id/msg"
                         android:layout_alignBottom="@+id/msg"
                         android:layout_marginStart="23dp"
-                        android:layout_marginEnd="23dp"
-                        android:layout_marginBottom="25dp"
+                        android:layout_marginEnd="22dp"
+                        android:layout_marginBottom="20dp"
                         android:background="@color/white"
                         android:elevation="4dp"
                         android:gravity="top|right"
@@ -213,7 +179,45 @@
                         android:paddingBottom="10dp"
                         android:textColor="#DA3832"
                         android:textDirection="rtl"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/msg_heading3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/head"
+                        android:layout_alignTop="@+id/head"
+                        android:layout_alignEnd="@+id/head"
+                        android:layout_alignBottom="@+id/head"
+                        android:layout_marginStart="60dp"
+                        android:layout_marginTop="387dp"
+                        android:layout_marginEnd="60dp"
+                        android:layout_marginBottom="-347dp"
+                        android:elevation="4dp"
+                        android:text="@string/report"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/msg_heading2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="64dp"
+                        android:layout_alignStart="@+id/head"
+                        android:layout_alignTop="@+id/head"
+                        android:layout_alignEnd="@+id/head"
+                        android:layout_alignBottom="@+id/head"
+                        android:layout_marginStart="60dp"
+                        android:layout_marginTop="217dp"
+                        android:layout_marginEnd="60dp"
+                        android:layout_marginBottom="-158dp"
+                        android:elevation="4dp"
+                        android:text="@string/location"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
 

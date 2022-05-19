@@ -16,7 +16,7 @@
 
         <path
             android:pathData="M0 0V154H267V0"
-            android:fillColor="#FFFFFF"
+            android:fillColor="#C4C4C4"
             />
 
     </group>
