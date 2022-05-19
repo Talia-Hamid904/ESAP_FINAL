@@ -29,7 +29,7 @@ public class SplashScreen extends AppCompatActivity {
                 finally {
                     FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
                   //  currentUser.getDisplayName();
-                    Log.i("currentUser", currentUser.toString());
+                   // Log.i("currentUser", currentUser.toString());
                     Intent intent;
                     if(currentUser != null)
                     {

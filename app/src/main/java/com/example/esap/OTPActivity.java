@@ -29,14 +29,15 @@ import java.util.concurrent.TimeUnit;
 public class OTPActivity extends AppCompatActivity {
 
     // variable for FirebaseAuth class
+    // variable for FirebaseAuth class
     private FirebaseAuth mAuth;
 
     // variable for our text input
     // field for phone and OTP.
-    private AppCompatEditText edtPhone, edtOTP;
+    private EditText edtPhone, edtOTP;
 
     // buttons for generating OTP and verifying OTP
-    private AppCompatButton verifyOTPBtn, generateOTPBtn;
+    private Button verifyOTPBtn, generateOTPBtn;
 
     // string for storing our verification ID
     private String verificationId;
@@ -69,7 +70,8 @@ public class OTPActivity extends AppCompatActivity {
                 } else {
                     // if the text field is not empty we are calling our
                     // send OTP method for getting OTP from Firebase.
-                    String phone = edtPhone.getText().toString();
+                    Toast.makeText(OTPActivity.this, "Sending OTP", Toast.LENGTH_SHORT).show();
+                    String phone = "+92" + edtPhone.getText().toString();
                     sendVerificationCode(phone);
                 }
             }
@@ -104,10 +106,7 @@ public class OTPActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // if the code is correct and the task is successful
                             // we are sending our user to new activity.
-                            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                            //String userPhoneNo = currentUser.getPhoneNumber();
                             Intent i = new Intent(OTPActivity.this, MainActivity.class);
-                           // i.putExtra("userPhone", userPhoneNo);
                             startActivity(i);
                             finish();
                         } else {
