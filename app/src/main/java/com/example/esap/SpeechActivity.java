@@ -68,6 +68,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.ml.naturallanguage.FirebaseNaturalLanguage;
 import com.google.firebase.ml.naturallanguage.languageid.FirebaseLanguageIdentification;
 
@@ -223,6 +224,8 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
                                         int index = locationResult.getLocations().size() - 1;
                                         latitude = locationResult.getLocations().get(index).getLatitude();
                                         longitude = locationResult.getLocations().get(index).getLongitude();
+
+
 
                                         Log.i("Location: ","Latitude: "+ latitude + "\n" + "Longitude: "+ longitude);
                                         Intent myIntent = new Intent(SpeechActivity.this, MessageInfo.class);

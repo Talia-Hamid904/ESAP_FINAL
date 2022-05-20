@@ -3,6 +3,7 @@ package com.example.esap;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.widget.AppCompatButton;
@@ -14,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
@@ -23,6 +26,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.concurrent.TimeUnit;
 
@@ -41,6 +48,7 @@ public class OTPActivity extends AppCompatActivity {
 
     // string for storing our verification ID
     private String verificationId;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +58,7 @@ public class OTPActivity extends AppCompatActivity {
         // below line is for getting instance
         // of our FirebaseAuth.
         mAuth = FirebaseAuth.getInstance();
-
+        db = FirebaseFirestore.getInstance();
         // initializing variables for button and Edittext.
         edtPhone = findViewById(R.id.idEdtPhoneNumber);
         edtOTP = findViewById(R.id.idEdtOtp);
@@ -106,6 +114,25 @@ public class OTPActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // if the code is correct and the task is successful
                             // we are sending our user to new activity.
+                            String uid = mAuth.getCurrentUser().getUid();
+                            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                            String userPhoneNo = currentUser.getPhoneNumber();
+                            addUserToDatabase(userPhoneNo, uid);
+                            /*if(userPhoneNo.equals("+923036765805")){
+                                FirebaseMessaging.getInstance().subscribeToTopic("ambulance")
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                String msg = "You have subscribed";
+                                                if (!task.isSuccessful()) {
+                                                    msg = "Subscription failed";
+                                                }
+                                                Log.d("TAG", msg);
+                                                Toast.makeText(OTPActivity.this, msg, Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+
+                            }*/
                             Intent i = new Intent(OTPActivity.this, MainActivity.class);
                             startActivity(i);
                             finish();
@@ -130,6 +157,31 @@ public class OTPActivity extends AppCompatActivity {
                         .setCallbacks(mCallBack)           // OnVerificationStateChangedCallbacks
                         .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
+
+    }
+
+    private void addUserToDatabase(String number, String uid) {
+        CollectionReference dbCourses = db.collection("userdata");
+
+        // adding our data to our courses object class.
+        UserData data = new UserData(number, uid);
+
+        // below method is use to add data to Firebase Firestore.
+        dbCourses.add(data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                // after the data addition is successful
+                // we are displaying a success toast message.
+                Toast.makeText(OTPActivity.this, "Your Data has been added to Firebase Firestore", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // this method is called when the data addition process is failed.
+                // displaying a toast message when data addition is failed.
+                Toast.makeText(OTPActivity.this, "Fail to add data \n" + e, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     // callback method is called on Phone auth provider.

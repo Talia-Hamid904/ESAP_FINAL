@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.esap">
+    package="com.example.esap" >
 
     <queries>
         <intent>
@@ -16,6 +16,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <application
         android:allowBackup="true"
@@ -25,7 +26,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ESAP_FINAL"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m">
+        tools:targetApi="m" >
+        <service
+            android:name=".PushNotification"
+            android:exported="false">
+            <intent-filter >
+                  <action android:name="com.google.firebase.MESSAGING_EVENT"></action>
+            </intent-filter>
+        </service>
+
         <activity
             android:name=".OTPActivity"
             android:exported="false" />
@@ -39,15 +48,13 @@
             android:name=".SplashScreen"
             android:exported="true"
             android:label="@string/title_activity_splash_screen"
-            android:theme="@style/Theme.ESAP_FINAL.NoActionBar">
+            android:theme="@style/Theme.ESAP_FINAL.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
         <activity
             android:name=".MessageInfo"
             android:exported="false" />

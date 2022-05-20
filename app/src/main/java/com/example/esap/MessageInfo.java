@@ -17,6 +17,7 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.os.Message;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +32,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.io.IOException;
 import java.util.List;
@@ -78,7 +80,7 @@ public class MessageInfo extends AppCompatActivity {
 
             public void run() {
                 try {
-                    sendSMSMessage();
+                    sendSMSMessage(address, userPhoneNo, text, splitService[0], splitService[1]);
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
@@ -125,7 +127,7 @@ public class MessageInfo extends AppCompatActivity {
         }
         return null;
     }
-    protected void sendSMSMessage() {
+    protected void sendSMSMessage(String address, String userPhoneNo, String text, String intent, String entity) {
         phoneNo = "03155903128";
         phoneNoSrc = "03155903128";
         message = "ambulance";
@@ -200,6 +202,22 @@ public class MessageInfo extends AppCompatActivity {
             smsManager.sendTextMessage(phoneNo, phoneNoSrc, message, sentPI, deliveredPI);
 
         }
+        String topic = "ambulance";
+
+// See documentation on defining a message payload.
+        /*Message message = Message.builder()
+                .putData("address", address)
+                .putData("userPhoneNo", userPhoneNo)
+                .putData("text",text)
+                .putData("intent",intent)
+                .putData("entity",entity)
+                .setTopic(topic)
+                .build();*/
+
+// Send a message to the devices subscribed to the provided topic.
+        /*String response = FirebaseMessaging.getInstance().send(message);
+// Response is a message ID string.
+        System.out.println("Successfully sent message: " + response);*/
     }
 
     @Override

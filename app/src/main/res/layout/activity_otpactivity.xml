@@ -111,7 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/idBtnGetOtp"
-                android:layout_margin="10dp"
+                android:layout_margin="10dp"q
                 android:hint="Enter OTP"
                 android:importantForAutofill="no"
                 android:inputType="phone" />-->

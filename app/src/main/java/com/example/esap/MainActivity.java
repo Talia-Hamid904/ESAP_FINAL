@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClickFoodPoison(View view){
         ImageButton e_btn = findViewById(R.id.imageButton8);
         e_btn.setBackgroundResource(R.drawable.button_shadow);
-        serviceType="فوڈ پوائزن";
+        serviceType="ambulance";
         text = "food poisoning";
         getCurrentLocation();
     }
