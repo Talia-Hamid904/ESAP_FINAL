@@ -16,6 +16,7 @@
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/drawable/half_curve.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/drawable/half_curve_black.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/drawable/help_view.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/drawable/ic_menu_camera.xml" value="0.26197916666666665" />
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/drawable/img_amb_fade.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/drawable/inner_rect.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/drawable/message_rect.xml" value="0.26614583333333336" />
@@ -26,12 +27,26 @@
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/drawable/rectangle_2.xml" value="0.1546875" />
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/drawable/rectangle_3.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/drawable/rectangle_7.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/drawable/side_nav_bar.xml" value="0.26197916666666665" />
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/activity_help_images.xml" value="0.264" />
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/activity_message_info.xml" value="0.264" />
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/activity_message_info2.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/activity_navigation_drawer.xml" value="0.24583333333333332" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/activity_navigation_menu.xml" value="0.24583333333333332" />
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/activity_otpactivity.xml" value="0.17604166666666668" />
         <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/activity_speech.xml" value="0.25" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/activity_splash_screen.xml" value="0.24583333333333332" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/app_bar_navigation_drawer.xml" value="0.24583333333333332" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/content_navigation_drawer.xml" value="0.24583333333333332" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/fragment_gallery.xml" value="0.24583333333333332" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/fragment_home.xml" value="0.24583333333333332" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/fragment_slideshow.xml" value="0.24583333333333332" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/nav_header.xml" value="0.4" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/layout/nav_header_navigation_drawer.xml" value="0.24583333333333332" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/menu/activity_main_drawer.xml" value="0.24583333333333332" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/menu/drawer_menu.xml" value="0.152" />
+        <entry key="..\:/Users/Faizan Ahmed/Desktop/fyp_final/ESAP_FINAL/app/src/main/res/menu/navigation_drawer.xml" value="0.24583333333333332" />
       </map>
     </option>
   </component>
