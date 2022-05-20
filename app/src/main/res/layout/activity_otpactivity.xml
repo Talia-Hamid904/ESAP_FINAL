@@ -10,15 +10,6 @@
     tools:context=".OTPActivity">
 
 
-  <!--  <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">-->
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -68,6 +59,8 @@
                 android:textColorHint="#E0E0E0"
                 android:textSize="16sp"
                 />-->
+
+
             <Button
                 android:id="@+id/idBtnGetOtp"
                 android:layout_width="150dp"
@@ -75,13 +68,28 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="128dp"
-                android:layout_marginEnd="128dp"
-                android:layout_marginBottom="250dp"
-                android:background="@drawable/white_button"
+                android:layout_marginStart="126dp"
+                android:layout_marginEnd="130dp"
+                android:layout_marginBottom="246dp"
                 android:elevation="4dp"
+
                 android:text="Get OTP"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/idBtnVerify"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="130dp"
+                android:layout_marginEnd="126dp"
+                android:layout_marginBottom="97dp"
+                android:elevation="4dp"
+
+                android:text="Verify OTP"
+                android:textAllCaps="false" />
 
             <EditText
                 android:id="@+id/idEdtPhoneNumber"
@@ -92,9 +100,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginBottom="279dp"
+                android:layout_marginTop="66dp"
+                android:layout_marginEnd="49dp"
+                android:layout_marginBottom="253dp"
                 android:background="@android:color/transparent"
                 android:backgroundTint="#ECE8E8"
                 android:elevation="4dp"
@@ -106,25 +114,7 @@
                 android:textColorHint="#E0E0E0"
                 android:textSize="16sp"
                 app:backgroundTint="@color/white" />
-           <!-- <EditText
-                android:id="@+id/idEdtOtp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/idBtnGetOtp"
-                android:layout_margin="10dp"q
-                android:hint="Enter OTP"
-                android:importantForAutofill="no"
-                android:inputType="phone" />-->
 
-
-            <Button
-                android:id="@+id/idBtnVerify"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/idEdtOtp"
-                android:layout_margin="10dp"
-                android:text="Verify OTP"
-                android:textAllCaps="false" />
 
             <EditText
                 android:id="@+id/idEdtOtp"
@@ -135,128 +125,20 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="189dp"
+                android:layout_marginTop="220dp"
                 android:layout_marginEnd="49dp"
-                android:layout_marginBottom="134dp"
+                android:layout_marginBottom="103dp"
                 android:background="@android:color/transparent"
                 android:backgroundTint="@color/white"
                 android:hint="Enter OTP"
                 android:importantForAutofill="no"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:textColorHint="#E0E0E0" />
 
-            <!--<androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/idBtnGetOtp"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="128dp"
-                android:layout_marginEnd="128dp"
-                android:layout_marginBottom="250dp"
-                android:background="@drawable/white_button"
-                android:elevation="4dp"
-                android:text="@string/get_otp" />-->
-
-            <!--<androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/idBtnVerify"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="128dp"
-                android:layout_marginEnd="128dp"
-                android:layout_marginBottom="100dp"
-                android:background="@drawable/white_button"
-                android:elevation="4dp"
-                android:text="@string/verify_otp" />-->
 
 
         </RelativeLayout>
 
-
-   <!-- <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-        <View
-            android:id="@+id/rectangle_3"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="334dp"
-            android:layout_marginBottom="0dp"
-            android:background="@drawable/otp_page" />
-
-        <EditText
-            android:id="@+id/idEdtPhoneNumber"
-            android:layout_width="307dp"
-            android:layout_height="74dp"
-            android:layout_alignTop="@+id/rectangle_3"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="279dp"
-            android:elevation="4dp"
-            android:hint="Enter Phone Number (03xxxxxxxxx)"
-            android:importantForAutofill="no"
-            android:inputType="phone"
-            android:padding="10dp"
-            android:textColor="@color/white"
-            android:textColorHint="#E0E0E0"
-            android:textSize="16sp"
-             />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/idBtnGetOtp"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="128dp"
-            android:layout_marginEnd="128dp"
-            android:layout_marginBottom="250dp"
-            android:background="@drawable/white_button"
-            android:elevation="4dp"
-            android:text="Get OTP"
-            android:textAllCaps="false"/>
-        &lt;!&ndash;Edittext for getting users phone number&ndash;&gt;
-
-
-        &lt;!&ndash;Button for getting OTP&ndash;&gt;
-
-        &lt;!&ndash;Edittext for getting otp from user&ndash;&gt;
-
-
-        <EditText
-            android:id="@+id/idEdtOtp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idBtnGetOtp"
-            android:layout_margin="10dp"
-            android:hint="Enter OTP"
-            android:importantForAutofill="no"
-            android:inputType="phone" />
-
-        &lt;!&ndash;button for verifying user OTP&ndash;&gt;
-        <Button
-            android:id="@+id/idBtnVerify"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idEdtOtp"
-            android:layout_margin="10dp"
-            android:text="Verify OTP"
-            android:textAllCaps="false" />
-
-    </RelativeLayout>
--->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

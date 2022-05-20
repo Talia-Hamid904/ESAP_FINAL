@@ -20,6 +20,7 @@ import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -32,9 +33,13 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.gms.common.AccountPicker;
 import com.google.android.gms.common.api.ApiException;
@@ -67,13 +72,15 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.ml.naturallanguage.FirebaseNaturalLanguage;
 import com.google.firebase.ml.naturallanguage.languageid.FirebaseLanguageIdentification;
 
 
-public class SpeechActivity extends AppCompatActivity implements RecognitionListener {
+public class SpeechActivity extends AppCompatActivity implements RecognitionListener, NavigationView.OnNavigationItemSelectedListener{
+    private DrawerLayout drawer;
 
     private static final int PERMISSIONS_REQUEST_RECORD_AUDIO = 1;
     private static String serviceType;
@@ -127,17 +134,56 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
         // UI initialisation
         returnedText = findViewById(R.id.speech_text);
          writtenText = findViewById(R.id.text_8);
-        //returnedError = findViewById(R.id.speech_text);
         progressBar = findViewById(R.id.progressBar1);
         progressBar.setVisibility(View.INVISIBLE);
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-/*        locationRequest.setInterval(5000);
-        locationRequest.setFastestInterval(2000);*/
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
         setRecogniserIntent();
 
 
     }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_home:
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_signout:
+                Intent intent2 = new Intent(this, OTPActivity.class);
+                startActivity(intent2);
+                break;
+        }
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else{
+            super.onBackPressed();
+        }
+    }
+
 
     public void startOnClick(View view) {
         Log.i("startOnClick", "in start on click");

@@ -13,6 +13,9 @@
     <string name="title_activity_speech">SpeechActivity</string>
     <string name="test_text">لکھیے</string>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string name="location">جاۓ وقوعہ</string>
     <string name="cancel">منسوخ</string>
 
@@ -32,5 +35,7 @@
     <string name="help">فوری امداد کی ہدایات</string>
     <string name="get_otp">GET OTP</string>
     <string name="verify_otp">VERIFY OTP</string>
+    <string name="sign_out">لاگ آوٹ</string>
+    <string name="home">ہوم</string>
 
 </resources>
