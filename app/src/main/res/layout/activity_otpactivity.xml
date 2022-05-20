@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".OTPActivity">
 
 
     <LinearLayout
@@ -62,7 +62,6 @@
                 android:background="@android:color/transparent"
                 android:backgroundTint="#ECE8E8"
                 android:elevation="4dp"
-                android:ems="11"
                 android:hint="Enter Phone Number (03xxxxxxxxx)"
                 android:inputType="phone"
                 android:padding="10dp"
@@ -86,7 +85,6 @@
                 android:background="@android:color/transparent"
                 android:backgroundTint="@color/white"
                 android:elevation="4dp"
-                android:ems="6"
                 android:hint="Enter the OTP"
                 android:inputType="phone"
                 android:padding="10dp"
