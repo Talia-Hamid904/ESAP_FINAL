@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.esap" >
+    package="com.example.esap">
 
     <queries>
         <intent>
@@ -26,7 +26,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ESAP_FINAL"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m" >
+        tools:targetApi="m">
+        <activity
+            android:name=".NotificationActivity"
+            android:exported="false" />
+        <!--
         <service
             android:name=".PushNotification"
             android:exported="false">
@@ -34,6 +38,21 @@
                   <action android:name="com.google.firebase.MESSAGING_EVENT"></action>
             </intent-filter>
         </service>
+        -->
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <activity
             android:name=".OTPActivity"
@@ -48,7 +67,7 @@
             android:name=".SplashScreen"
             android:exported="true"
             android:label="@string/title_activity_splash_screen"
-            android:theme="@style/Theme.ESAP_FINAL.NoActionBar" >
+            android:theme="@style/Theme.ESAP_FINAL.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

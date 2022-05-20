@@ -118,7 +118,7 @@ public class OTPActivity extends AppCompatActivity {
                             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
                             String userPhoneNo = currentUser.getPhoneNumber();
                             addUserToDatabase(userPhoneNo, uid);
-                            /*if(userPhoneNo.equals("+923036765805")){
+                            if(userPhoneNo.equals("+923036765805")){
                                 FirebaseMessaging.getInstance().subscribeToTopic("ambulance")
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
@@ -132,7 +132,7 @@ public class OTPActivity extends AppCompatActivity {
                                             }
                                         });
 
-                            }*/
+                            }
                             Intent i = new Intent(OTPActivity.this, MainActivity.class);
                             startActivity(i);
                             finish();
