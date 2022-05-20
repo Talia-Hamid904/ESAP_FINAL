@@ -7,7 +7,8 @@
     tools:context=".MainActivity"
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="start"
+    android:background="#D93832">
 
 
     <ScrollView
@@ -130,9 +131,9 @@
                         android:layout_alignTop="@+id/head"
                         android:layout_alignEnd="@+id/head"
                         android:layout_alignBottom="@+id/head"
-                        android:layout_marginStart="60dp"
+                        android:layout_marginStart="50dp"
                         android:layout_marginTop="14dp"
-                        android:layout_marginEnd="60dp"
+                        android:layout_marginEnd="50dp"
                         android:layout_marginBottom="40dp"
                         android:elevation="4dp"
                         android:text="@string/help"

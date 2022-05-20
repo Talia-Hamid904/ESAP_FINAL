@@ -38,29 +38,6 @@
                 android:layout_marginEnd="80dp"
                 app:srcCompat="@drawable/logo_bg" />
 
-            <!--<EditText
-                android:id="@+id/idEdtPhoneNumber"
-                android:layout_width="307dp"
-                android:layout_height="74dp"
-                android:layout_alignTop="@+id/rectangle_3"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginBottom="279dp"
-                android:elevation="4dp"
-                android:hint="Enter Phone Number (03xxxxxxxxx)"
-                android:importantForAutofill="no"
-                android:inputType="phone"
-                android:padding="10dp"
-                android:textColor="@color/white"
-                android:textColorHint="#E0E0E0"
-                android:textSize="16sp"
-                />-->
-
-
             <Button
                 android:id="@+id/idBtnGetOtp"
                 android:layout_width="150dp"
@@ -76,20 +53,7 @@
                 android:text="Get OTP"
                 android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/idBtnVerify"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="130dp"
-                android:layout_marginEnd="126dp"
-                android:layout_marginBottom="97dp"
-                android:elevation="4dp"
 
-                android:text="Verify OTP"
-                android:textAllCaps="false" />
 
             <EditText
                 android:id="@+id/idEdtPhoneNumber"
@@ -134,6 +98,15 @@
                 android:importantForAutofill="no"
                 android:inputType="phone"
                 android:textColorHint="#E0E0E0" />
+
+            <Button
+                android:id="@+id/idBtnVerify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/idEdtOtp"
+                android:layout_margin="10dp"
+                android:text="Verify OTP"
+                android:textAllCaps="false" />
 
 
 

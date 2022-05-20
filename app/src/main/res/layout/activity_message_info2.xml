@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:id="@+id/drawer_layout"
+    android:background="#D93832"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start"
-    android:background="#D93832">
+    tools:openDrawer="start">
 
     <ScrollView
         android:layout_width="match_parent"
