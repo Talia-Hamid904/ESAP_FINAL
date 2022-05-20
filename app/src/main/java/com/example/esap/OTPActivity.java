@@ -118,7 +118,7 @@ public class OTPActivity extends AppCompatActivity {
                             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
                             String userPhoneNo = currentUser.getPhoneNumber();
                             addUserToDatabase(userPhoneNo, uid);
-                            if(userPhoneNo.equals("+923036765805")){
+                            if(userPhoneNo.equals("+923155903128")){
                                 FirebaseMessaging.getInstance().subscribeToTopic("ambulance")
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override

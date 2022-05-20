@@ -29,12 +29,24 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import com.google.firebase.messaging.FirebaseMessaging;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Map;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 
 public class MessageInfo2 extends AppCompatActivity {
-
+    RequestQueue requestQueue;
     private String phoneNo;
     private String phoneNoSrc;
     private String message;
@@ -42,12 +54,17 @@ public class MessageInfo2 extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 0;
     private FirebaseFirestore db;
 
+    private String FCM_API = "https://fcm.googleapis.com/fcm/send";
+    private String  serverKey ="key=" + "AAAAIe2e9r4:APA91bHqO7gi-jG2EMxVcvPkiTdLcPES9Nx1BEt8qp6EOQu7G3uJHhy8mswEJLFXvhBygP_JOgWThdvsIoovM2lY-XJjKz24Acgk_hg1oNlQ-L4FJD-wYPRd0GzatAZtPbwdCg7Qbo0l";
+    private String contentType = "application/json";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_info2);
         db = FirebaseFirestore.getInstance();
         Intent intent = getIntent();
+        requestQueue = Volley.newRequestQueue(this);
         service = intent.getStringExtra("key");
        // String[] splitService = service.split(" ");
         TextView msg = findViewById(R.id.report_confirm);
@@ -84,6 +101,19 @@ public class MessageInfo2 extends AppCompatActivity {
             }
         };
 
+        Thread thread3 = new Thread() {
+
+            public void run() {
+                try {
+                    sendServerMessage();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+
+                }
+            }
+        };
+
         Thread thread = new Thread() {
 
             public void run() {
@@ -100,8 +130,70 @@ public class MessageInfo2 extends AppCompatActivity {
             }
         };
         thread1.start();
+        thread3.start();
         thread.start();
 
+    }
+
+    private void sendServerMessage() {
+        String topic = "/topics/ambulance" ;//topic has to match what the receiver subscribed to
+
+        JSONObject notification = new JSONObject();
+        JSONObject notificationBody = new JSONObject();
+
+        try {
+            notificationBody.put("title", "Message");
+            Log.i("NotificationBody", notificationBody.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            notificationBody.put("message", service);
+            Log.i("NotificationBody", notificationBody.toString());//Enter your notification message
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            notification.put("to", topic);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            notification.put("data", notificationBody);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.e("TAG", "try");
+        sendNotification(notification);
+    }
+
+    private void sendNotification(JSONObject notification) {
+        Log.e("TAG", "sendNotification");
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(FCM_API, notification, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.i("TAG", "onResponse: $response");
+            }
+
+
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Log.i("TAG","Error :" + error.toString());
+            }
+        })
+        {
+            @Override
+            public HashMap<String, String> getHeaders () {
+                HashMap<String, String> params = new HashMap<>();
+                params.put("Authorization",serverKey);
+                params.put("Content-Type",contentType);
+                return params;
+            }
+        };
+        requestQueue.add(jsonObjectRequest);
     }
 
     public String getAddress(double lat, double lng) {
