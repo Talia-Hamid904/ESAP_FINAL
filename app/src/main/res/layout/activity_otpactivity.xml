@@ -107,7 +107,7 @@
                 android:backgroundTint="#ECE8E8"
                 android:elevation="4dp"
                 android:ems="11"
-                android:hint="Enter Phone Number (03xxxxxxxxx)"
+                android:hint="Enter Phone Number (3xxxxxxxxx)"
                 android:inputType="phone"
                 android:padding="10dp"
                 android:textColor="@color/white"
