@@ -28,7 +28,7 @@ public class firebase_msg_resp {
     }
 
     public String getLocation() {
-        return resp;
+        return location;
     }
 
     public String getUserPhone() {

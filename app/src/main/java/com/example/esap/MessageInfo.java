@@ -29,6 +29,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
@@ -40,11 +44,16 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
 public class MessageInfo extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    RequestQueue requestQueue;
     private DrawerLayout drawer;
     private String phoneNo;
     private String phoneNoSrc;
@@ -53,6 +62,13 @@ public class MessageInfo extends AppCompatActivity implements NavigationView.OnN
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 0;
     private FirebaseFirestore db;
     String[] splitService;
+
+    private String FCM_API = "https://fcm.googleapis.com/fcm/send";
+    private String  serverKey ="key=" + "AAAAIe2e9r4:APA91bHqO7gi-jG2EMxVcvPkiTdLcPES9Nx1BEt8qp6EOQu7G3uJHhy8mswEJLFXvhBygP_JOgWThdvsIoovM2lY-XJjKz24Acgk_hg1oNlQ-L4FJD-wYPRd0GzatAZtPbwdCg7Qbo0l";
+    private String contentType = "application/json";
+    String address;
+    String userPhoneNo;
+    String text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +91,7 @@ public class MessageInfo extends AppCompatActivity implements NavigationView.OnN
         TextView location = findViewById(R.id.report_location);
         String address = getAddress(latitude,longitude);
         location.setText(address);
-        String text = intent.getStringExtra("key4");
+        text = intent.getStringExtra("key4");
         TextView userMsg = findViewById(R.id.report);
          userMsg.setText(text);
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -95,6 +111,20 @@ public class MessageInfo extends AppCompatActivity implements NavigationView.OnN
             }
         };
 
+        Thread thread3 = new Thread() {
+
+            public void run() {
+                try {
+                    sendServerMessage();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+
+                }
+            }
+        };
+
+
         Thread thread = new Thread() {
 
             public void run() {
@@ -111,6 +141,7 @@ public class MessageInfo extends AppCompatActivity implements NavigationView.OnN
             }
         };
         thread1.start();
+        thread3.start();
         thread.start();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -130,6 +161,85 @@ public class MessageInfo extends AppCompatActivity implements NavigationView.OnN
 
     }
 
+    private void sendServerMessage() {
+        String topic = "/topics/ambulance" ;//topic has to match what the receiver subscribed to
+
+        JSONObject notification = new JSONObject();
+        JSONObject notificationBody = new JSONObject();
+
+        try {
+            notificationBody.put("Title", "Message");
+            Log.i("NotificationBody", notificationBody.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            notificationBody.put("Message", service);
+            Log.i("NotificationBody", notificationBody.toString());//Enter your notification message
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            notificationBody.put("Address", address);
+            Log.i("NotificationBody", notificationBody.toString());//Enter your notification message
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            notificationBody.put("User's Phone Number", userPhoneNo);
+            Log.i("NotificationBody", notificationBody.toString());//Enter your notification message
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            notificationBody.put("User's Message", text);
+            Log.i("NotificationBody", notificationBody.toString());//Enter your notification message
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            notification.put("to", topic);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            notification.put("data", notificationBody);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.e("TAG", "try");
+        sendNotification(notification);
+    }
+    private void sendNotification(JSONObject notification) {
+        Log.e("TAG", "sendNotification");
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(FCM_API, notification, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.i("TAG", "onResponse: $response");
+            }
+
+
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Log.i("TAG","Error :" + error.toString());
+            }
+        })
+        {
+            @Override
+            public HashMap<String, String> getHeaders () {
+                HashMap<String, String> params = new HashMap<>();
+                params.put("Authorization",serverKey);
+                params.put("Content-Type",contentType);
+                return params;
+            }
+        };
+        requestQueue.add(jsonObjectRequest);
+    }
+
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -138,6 +248,7 @@ public class MessageInfo extends AppCompatActivity implements NavigationView.OnN
                 startActivity(intent);
                 break;
             case R.id.nav_signout:
+                FirebaseAuth.getInstance().getCurrentUser().delete();
                 Intent intent2 = new Intent(this, OTPActivity.class);
                 startActivity(intent2);
                 break;
@@ -175,8 +286,8 @@ public class MessageInfo extends AppCompatActivity implements NavigationView.OnN
         return null;
     }
     protected void sendSMSMessage(String address, String userPhoneNo, String text, String intent, String entity) {
-        phoneNo = "03155903128";
-        phoneNoSrc = "03155903128";
+        phoneNo = "03036765805";
+        phoneNoSrc = "03036765805";
         message = "ambulance";
 
         if (ContextCompat.checkSelfPermission(this,

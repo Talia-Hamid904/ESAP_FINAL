@@ -167,6 +167,7 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
                 startActivity(intent);
                 break;
             case R.id.nav_signout:
+                FirebaseAuth.getInstance().getCurrentUser().delete();
                 Intent intent2 = new Intent(this, OTPActivity.class);
                 startActivity(intent2);
                 break;
@@ -507,7 +508,7 @@ public class SpeechActivity extends AppCompatActivity implements RecognitionList
         String message = msg ;
         OkHttpClient okHttpClient = new OkHttpClient();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://8c46-111-68-97-201.in.ngrok.io/webhooks/rest/")
+                .baseUrl("https://d213-111-68-97-204.in.ngrok.io/webhooks/rest/")
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
