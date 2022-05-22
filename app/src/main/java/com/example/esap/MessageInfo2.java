@@ -18,6 +18,7 @@ import android.location.Geocoder;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -69,11 +70,14 @@ public class MessageInfo2 extends AppCompatActivity {
         service = intent.getStringExtra("key");
        // String[] splitService = service.split(" ");
         TextView msg = findViewById(R.id.report_confirm);
+        ImageView background =  findViewById(R.id.top_img);
+
 
         if (service.equals("ambulance")) {
             msg.setText("آپ کی درخواست درج کر لی گئی ہے۔ آپ کی مدد کے لئے ایمبولینس جلد بھیج دی جائے گی۔");
         }
         if (service.equals("firebrigade")) {
+            background.setBackgroundResource(R.drawable.fire_3d);
             msg.setText("آپ کی درخواست درج کر لی گئی ہے۔ آپ کی مدد کے لئے فائیربریگیڈ جلد بھیج دی جائے گی۔");
         }
         double latitude = intent.getDoubleExtra("key2", 0.0);
