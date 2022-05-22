@@ -38,6 +38,7 @@ import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -91,7 +92,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
             case R.id.nav_signout:
-                Intent intent2 = new Intent(this, OTPActivity.class);
+                FirebaseAuth.getInstance().getCurrentUser().delete();
+                 Intent intent2 = new Intent(this, OTPActivity.class);
                 startActivity(intent2);
                 break;
         }
@@ -112,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ImageButton e_btn = findViewById(R.id.imageButton3);
         e_btn.setBackgroundResource(R.drawable.button_shadow);
         serviceType="ambulance";
-        text = "حادثہ";
+        text = "یہاں ایک حادثہ ہو گیا ہے جلدی ایمبولینس بھیجیں";
         getCurrentLocation();
 
     }
@@ -121,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ImageButton e_btn = findViewById(R.id.imageButton5);
         e_btn.setBackgroundResource(R.drawable.button_shadow);
         serviceType="ambulance";
-        text = "دم گھٹنا";
+        text = "دم گھٹ رہا ہے جلدی ایمبولینس بھیجیں";
         getCurrentLocation();
     }
 
@@ -129,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ImageButton e_btn = findViewById(R.id.imageButton7);
         e_btn.setBackgroundResource(R.drawable.button_shadow);
         serviceType="firebrigade";
-        text = "آگ";
+        text = "یہاں شدید آگ لگ گئی ہے جلدی فائر بریگیڈ بھیجیں";
         getCurrentLocation();
     }
 
@@ -137,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ImageButton e_btn = findViewById(R.id.imageButton6);
         e_btn.setBackgroundResource(R.drawable.button_shadow);
         serviceType="ambulance";
-        text = "زچہ و بچہ";
+        text = "زچہ و بچہ کا مسئلہ ہے جلدی ایمبولینس بھیجیں";
         getCurrentLocation();
     }
 
@@ -145,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ImageButton e_btn = findViewById(R.id.imageButton8);
         e_btn.setBackgroundResource(R.drawable.button_shadow);
         serviceType="ambulance";
-        text = "food poisoning";
+        text = "فوڈ پوازننگ ہوگئی ہے جلدی ایمبولینس بھیجیں";
         getCurrentLocation();
     }
 
@@ -153,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ImageButton accbtn = findViewById(R.id.imageButton4);
         accbtn.setBackgroundResource(R.drawable.button_shadow);
         serviceType="ambulance";
-        text = "دل کا دورہ";
+        text = "دل کا دورہ پڑ رہا ہے جلدی ایمبولینس بھیجیں";
         getCurrentLocation();
     }
     public void onClickFireBrigade(View view){

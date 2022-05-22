@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class HelpImages extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -69,6 +70,7 @@ public class HelpImages extends AppCompatActivity implements NavigationView.OnNa
                 startActivity(intent);
                 break;
             case R.id.nav_signout:
+                FirebaseAuth.getInstance().getCurrentUser().delete();
                 Intent intent2 = new Intent(this, OTPActivity.class);
                 startActivity(intent2);
                 break;

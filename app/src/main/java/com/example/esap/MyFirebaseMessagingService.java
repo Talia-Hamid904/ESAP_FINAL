@@ -34,8 +34,19 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Intent intent = new Intent(context, NotificationActivity.class);
 
         Log.i("TAG", remoteMessage.getData().toString());
-        String title = remoteMessage.getData().get("title");
-        String body = remoteMessage.getData().get("message");
+        String title = remoteMessage.getData().get("Title");
+        String body = remoteMessage.getData().get("Message");
+        String address = remoteMessage.getData().get("Address");
+        String phNo = remoteMessage.getData().get("User's Phone Number");
+        String userMsg = remoteMessage.getData().get("User's Message");
+        intent.putExtra("key1", body);
+        intent.putExtra("key2", address);
+        intent.putExtra("key3", phNo);
+        intent.putExtra("key4", userMsg);
+
+        Log.i("address", address);
+        Log.i("phNo", phNo);
+        Log.i("userMsg", userMsg);
         final String CHANNEL_ID = "Heads up Notification";
         NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, "MyNotification", NotificationManager.IMPORTANCE_HIGH);
         getSystemService(NotificationManager.class).createNotificationChannel(notificationChannel);

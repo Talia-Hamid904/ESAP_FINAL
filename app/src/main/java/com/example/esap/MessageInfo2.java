@@ -57,7 +57,8 @@ public class MessageInfo2 extends AppCompatActivity {
     private String FCM_API = "https://fcm.googleapis.com/fcm/send";
     private String  serverKey ="key=" + "AAAAIe2e9r4:APA91bHqO7gi-jG2EMxVcvPkiTdLcPES9Nx1BEt8qp6EOQu7G3uJHhy8mswEJLFXvhBygP_JOgWThdvsIoovM2lY-XJjKz24Acgk_hg1oNlQ-L4FJD-wYPRd0GzatAZtPbwdCg7Qbo0l";
     private String contentType = "application/json";
-
+    String address;
+    String userPhoneNo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,14 +79,14 @@ public class MessageInfo2 extends AppCompatActivity {
         double latitude = intent.getDoubleExtra("key2", 0.0);
         double longitude = intent.getDoubleExtra("key3", 0.0);
         TextView location = findViewById(R.id.report_location);
-        String address = getAddress(latitude,longitude);
+        address = getAddress(latitude,longitude);
         location.setText(address);
         String text = intent.getStringExtra("key4");
         TextView userMsg = findViewById(R.id.report);
         userMsg.setText(text);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        String userPhoneNo = currentUser.getPhoneNumber();
+        userPhoneNo = currentUser.getPhoneNumber();
         addDataToFirestore(text,service, address, userPhoneNo );
 
         Thread thread1 = new Thread() {
@@ -118,7 +119,7 @@ public class MessageInfo2 extends AppCompatActivity {
 
             public void run() {
                 try {
-                    sleep(5000);
+                    sleep(8000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
@@ -142,13 +143,31 @@ public class MessageInfo2 extends AppCompatActivity {
         JSONObject notificationBody = new JSONObject();
 
         try {
-            notificationBody.put("title", "Message");
+            notificationBody.put("Title", "Message");
             Log.i("NotificationBody", notificationBody.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
         try {
-            notificationBody.put("message", service);
+            notificationBody.put("Message", service);
+            Log.i("NotificationBody", notificationBody.toString());//Enter your notification message
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            notificationBody.put("Address", address);
+            Log.i("NotificationBody", notificationBody.toString());//Enter your notification message
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            notificationBody.put("User's Phone Number", userPhoneNo);
+            Log.i("NotificationBody", notificationBody.toString());//Enter your notification message
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            notificationBody.put("User's Message", service);
             Log.i("NotificationBody", notificationBody.toString());//Enter your notification message
         } catch (JSONException e) {
             e.printStackTrace();
