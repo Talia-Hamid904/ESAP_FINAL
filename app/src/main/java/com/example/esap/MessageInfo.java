@@ -34,6 +34,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
@@ -77,6 +78,7 @@ public class MessageInfo extends AppCompatActivity implements NavigationView.OnN
         setContentView(R.layout.activity_message_info);
         db = FirebaseFirestore.getInstance();
         Intent intent = getIntent();
+        requestQueue = Volley.newRequestQueue(this);
         service = intent.getStringExtra("key");
         splitService = service.split(" ");
         TextView msg = findViewById(R.id.report_confirm);
@@ -118,7 +120,7 @@ public class MessageInfo extends AppCompatActivity implements NavigationView.OnN
 
             public void run() {
                 try {
-                    sendServerMessage();
+                    sendServerMessage(userPhoneNo, address);
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
@@ -164,7 +166,7 @@ public class MessageInfo extends AppCompatActivity implements NavigationView.OnN
 
     }
 
-    private void sendServerMessage() {
+    private void sendServerMessage(String phNo, String add) {
         String topic = "/topics/ambulance" ;//topic has to match what the receiver subscribed to
 
         JSONObject notification = new JSONObject();
@@ -183,13 +185,13 @@ public class MessageInfo extends AppCompatActivity implements NavigationView.OnN
             e.printStackTrace();
         }
         try {
-            notificationBody.put("Address", address);
+            notificationBody.put("Address", add);
             Log.i("NotificationBody", notificationBody.toString());//Enter your notification message
         } catch (JSONException e) {
             e.printStackTrace();
         }
         try {
-            notificationBody.put("User's Phone Number", userPhoneNo);
+            notificationBody.put("User's Phone Number", phNo);
             Log.i("NotificationBody", notificationBody.toString());//Enter your notification message
         } catch (JSONException e) {
             e.printStackTrace();

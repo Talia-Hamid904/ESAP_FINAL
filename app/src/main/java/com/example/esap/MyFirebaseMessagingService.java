@@ -42,7 +42,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         intent.putExtra("key1", body);
         intent.putExtra("key2", address);
         intent.putExtra("key3", phNo);
-        intent.putExtra("key4", userMsg);
+        intent.putExtra("key4", body);
 
         Log.i("address", address);
         Log.i("phNo", phNo);
