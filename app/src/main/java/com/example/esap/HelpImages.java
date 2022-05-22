@@ -31,19 +31,16 @@ public class HelpImages extends AppCompatActivity implements NavigationView.OnNa
         Log.i("splitService", splitService[0]);
         if (splitService[0].equals("firebrigade")) {
             View imageView = (View) findViewById(R.id.pic1);
-            imageView.setBackgroundResource(R.drawable.fire400);
+            imageView.setBackgroundResource(R.drawable.injury);
             View imageView2 = (View) findViewById(R.id.pic2);
-            imageView2.setBackgroundResource(R.drawable.burn400);
-            View imageView3 = (View) findViewById(R.id.pic3);
-            imageView3.setBackgroundResource(R.drawable.burn400);
+            imageView2.setBackgroundResource(R.drawable.head);
+
         } else {
             Log.i("splitService", splitService[0]);
             View imageView = (View) findViewById(R.id.pic1);
-            imageView.setBackgroundResource(R.drawable.injury400);
+            imageView.setBackgroundResource(R.drawable.injury);
             View imageView2 = (View) findViewById(R.id.pic2);
-            imageView2.setBackgroundResource(R.drawable.heatstroke400);
-            View imageView3 = (View) findViewById(R.id.pic3);
-            imageView3.setBackgroundResource(R.drawable.snakebite);
+            imageView2.setBackgroundResource(R.drawable.head);
         }
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

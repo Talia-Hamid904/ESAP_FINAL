@@ -7,7 +7,7 @@
     tools:context=".MainActivity"
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
-    tools:openDrawer="l"
+    tools:openDrawer="start"
     android:background="#D93832">
 
 
@@ -46,13 +46,13 @@
                     <View
                         android:id="@+id/rectangle_2"
                         android:layout_width="wrap_content"
-                        android:layout_height="962dp"
+                        android:layout_height="715dp"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="-1dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="19dp"
+                        android:layout_marginTop="-7dp"
+                        android:layout_marginEnd="21dp"
                         android:background="@drawable/message_rect" />
 
                     <View
@@ -97,7 +97,7 @@
                     <View
                         android:id="@+id/msg"
                         android:layout_width="wrap_content"
-                        android:layout_height="786dp"
+                        android:layout_height="532dp"
                         android:layout_alignStart="@+id/rectangle_2"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
@@ -163,19 +163,6 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="60dp"
                         android:layout_marginTop="426dp"
-                        android:layout_marginRight="60dp"
-                        android:background="@drawable/help_view"
-                        android:elevation="5dp"
-                        android:scaleType="fitCenter" />
-
-                    <ImageButton
-                        android:id="@+id/pic3"
-                        android:layout_width="289dp"
-                        android:layout_height="230dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="60dp"
-                        android:layout_marginTop="682dp"
                         android:layout_marginRight="60dp"
                         android:background="@drawable/help_view"
                         android:elevation="5dp"
