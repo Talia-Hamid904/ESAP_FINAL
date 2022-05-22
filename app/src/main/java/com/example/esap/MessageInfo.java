@@ -26,6 +26,7 @@ import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -79,11 +80,13 @@ public class MessageInfo extends AppCompatActivity implements NavigationView.OnN
         service = intent.getStringExtra("key");
         splitService = service.split(" ");
         TextView msg = findViewById(R.id.report_confirm);
-
+        ImageView background =  findViewById(R.id.top_img);
         if (splitService[0].equals("ambulance")) {
+
                msg.setText("آپ کی درخواست درج کر لی گئی ہے۔ آپ کی مدد کے لئے ایمبولینس جلد بھیج دی جائے گی۔");
         }
         if (splitService[0].equals("firebrigade")) {
+               background.setBackgroundResource(R.drawable.fire_3d);
                msg.setText("آپ کی درخواست درج کر لی گئی ہے۔ آپ کی مدد کے لئے فائیربریگیڈ جلد بھیج دی جائے گی۔");
         }
         double latitude = intent.getDoubleExtra("key2", 0.0);
