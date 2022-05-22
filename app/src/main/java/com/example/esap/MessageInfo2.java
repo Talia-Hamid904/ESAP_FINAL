@@ -60,6 +60,7 @@ public class MessageInfo2 extends AppCompatActivity {
     private String contentType = "application/json";
     String address;
     String userPhoneNo;
+    String text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +69,7 @@ public class MessageInfo2 extends AppCompatActivity {
         Intent intent = getIntent();
         requestQueue = Volley.newRequestQueue(this);
         service = intent.getStringExtra("key");
+
        // String[] splitService = service.split(" ");
         TextView msg = findViewById(R.id.report_confirm);
         ImageView background =  findViewById(R.id.top_img);
@@ -85,7 +87,7 @@ public class MessageInfo2 extends AppCompatActivity {
         TextView location = findViewById(R.id.report_location);
         address = getAddress(latitude,longitude);
         location.setText(address);
-        String text = intent.getStringExtra("key4");
+        text = intent.getStringExtra("key4");
         TextView userMsg = findViewById(R.id.report);
         userMsg.setText(text);
 
@@ -153,7 +155,7 @@ public class MessageInfo2 extends AppCompatActivity {
             e.printStackTrace();
         }
         try {
-            notificationBody.put("Message", service);
+            notificationBody.put("Message", text);
             Log.i("NotificationBody", notificationBody.toString());//Enter your notification message
         } catch (JSONException e) {
             e.printStackTrace();

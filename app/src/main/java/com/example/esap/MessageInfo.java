@@ -132,7 +132,7 @@ public class MessageInfo extends AppCompatActivity implements NavigationView.OnN
 
             public void run() {
                 try {
-                    sleep(5000);
+                    sleep(8000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
